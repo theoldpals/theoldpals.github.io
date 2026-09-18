@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Old Pals — Menu</title>
+<meta name="theme-color" content="#111111">
+<meta name="description" content="The Old Pals menu">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f1ea;
+    --ink:#141414;
+    --muted:#6f6a61;
+    --line:#d8d2c6;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    -webkit-text-size-adjust:100%;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  header{
+    text-align:center;
+    padding:26px 16px 18px;
+  }
+  .wordmark{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Playfair Display',Georgia,serif;
+    font-weight:900;
+    font-size:clamp(20px,6.2vw,30px);
+    line-height:1.08;
+    letter-spacing:.055em;
+    padding:12px 20px 13px;
+    text-transform:uppercase;
+  }
+  .kicker{
+    margin-top:14px;
+    font-size:11px;
+    letter-spacing:.34em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  main{
+    max-width:760px;
+    margin:0 auto;
+    padding:4px 16px 48px;
+  }
+  .page{
+    margin:0 0 18px;
+    border:1px solid var(--line);
+    background:#fff;
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:0 1px 3px rgba(0,0,0,.06);
+  }
+  .page img{
+    display:block;
+    width:100%;
+    height:auto;
+    cursor:zoom-in;
+  }
+  .state{
+    text-align:center;
+    color:var(--muted);
+    font-size:14px;
+    padding:48px 8px;
+    line-height:1.7;
+  }
+  .state code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    background:#e7e2d7;
+    padding:2px 6px;
+    border-radius:3px;
+    font-size:13px;
+  }
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    padding:0 16px 40px;
+  }
+  /* Fullscreen zoom viewer */
+  #viewer{
+    position:fixed; inset:0; z-index:99;
+    background:rgba(10,10,10,.96);
+    display:none;
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
+    touch-action:pinch-zoom;
+  }
+  #viewer.open{display:block}
+  #viewer img{
+    display:block;
+    width:100%;
+    height:auto;
+    margin:auto;
+  }
+  #closeBtn{
+    position:fixed;
+    top:calc(10px + env(safe-area-inset-top));
+    right:12px;
+    z-index:100;
+    width:40px;height:40px;
+    border:0;border-radius:50%;
+    background:rgba(255,255,255,.92);
+    color:#111;
+    font-size:22px;line-height:40px;
+    cursor:pointer;
+    display:none;
+  }
+  #viewer.open ~ #closeBtn{display:block}
+  @media print{
+    header,footer,#closeBtn{display:none}
+    .page{border:0;box-shadow:none;page-break-after:always}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wordmark">The<br>Old Pals</div>
+  <div class="kicker">Menu</div>
+</header>
+
+<main id="menu">
+  <div class="state" id="state">Loading menu…</div>
+</main>
+
+<footer id="foot"></footer>
+
+<div id="viewer"><img id="viewerImg" alt=""></div>
+<button id="closeBtn" aria-label="Close">&times;</button>
+
+<script>
+(function(){
+  // ---------------------------------------------------------------
+  // Menu images are auto-detected. To update the menu, just upload
+  // files named menu-1.jpg, menu-2.jpg, menu-3.jpg ... into /images/
+  // Supported: .jpg .jpeg .png .webp  (no code changes needed)
+  // ---------------------------------------------------------------
+  var EXTS = ['jpg','jpeg','png','webp','JPG','PNG'];
+  var MAX_PAGES = 30;
+  var STOP_AFTER_MISSES = 2;
+  var bust = '?v=' + Math.floor(Date.now() / 60000); // refresh at most once a minute
+
+  var menu = document.getElementById('menu');
+  var state = document.getElementById('state');
+  var foot = document.getElementById('foot');
+  var viewer = document.getElementById('viewer');
+  var viewerImg = document.getElementById('viewerImg');
+  var closeBtn = document.getElementById('closeBtn');
+
+  function tryLoad(src){
+    return new Promise(function(resolve){
+      var img = new Image();
+      img.onload = function(){ resolve(src); };
+      img.onerror = function(){ resolve(null); };
+      img.src = src;
+    });
+  }
+
+  function findPage(n){
+    var i = 0;
+    function next(){
+      if (i >= EXTS.length) return Promise.resolve(null);
+      var src = 'images/menu-' + n + '.' + EXTS[i++] + bust;
+      return tryLoad(src).then(function(found){ return found || next(); });
+    }
+    return next();
+  }
+
+  function render(sources){
+    state.remove();
+    if (!sources.length){
+      var empty = document.createElement('div');
+      empty.className = 'state';
+      empty.innerHTML = 'No menu images yet.<br><br>' +
+        'Upload <code>menu-1.jpg</code>, <code>menu-2.jpg</code> …<br>into the <code>images</code> folder of this repository.';
+      menu.appendChild(empty);
+      return;
+    }
+    sources.forEach(function(src, idx){
+      var fig = document.createElement('div');
+      fig.className = 'page';
+      var img = document.createElement('img');
+      img.src = src;
+      img.alt = 'Menu page ' + (idx + 1);
+      img.loading = idx < 2 ? 'eager' : 'lazy';
+      img.decoding = 'async';
+      img.addEventListener('click', function(){ openViewer(src); });
+      fig.appendChild(img);
+      menu.appendChild(fig);
+    });
+    foot.textContent = 'The Old Pals';
+  }
+
+  function openViewer(src){
+    viewerImg.src = src;
+    viewer.classList.add('open');
+    viewer.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+    closeBtn.style.display = 'block';
+  }
+  function closeViewer(){
+    viewer.classList.remove('open');
+    document.body.style.overflow = '';
+    closeBtn.style.display = 'none';
+    viewerImg.src = '';
+  }
+  closeBtn.addEventListener('click', closeViewer);
+  viewer.addEventListener('click', closeViewer);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeViewer(); });
+
+  (function scan(){
+    var found = [];
+    var misses = 0;
+    var n = 1;
+    function step(){
+      if (n > MAX_PAGES || misses >= STOP_AFTER_MISSES) return render(found);
+      findPage(n).then(function(src){
+        if (src){ found.push(src); misses = 0; }
+        else { misses++; }
+        n++;
+        step();
+      });
+    }
+    step();
+  })();
+})();
+</script>
+</body>
+</html>
