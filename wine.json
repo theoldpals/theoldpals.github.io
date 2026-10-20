@@ -1,0 +1,13 @@
+{
+  "title": "Wine",
+  "currency": "฿",
+  "imageFolder": "wine_images/",
+  "items": [
+    { "name": "Cabernet Sauvignon", "detail": "Chile. Blackcurrant, firm tannins. Bottle 750 ml",  "price": 1200, "new": false, "shelf": 1, "order": 1, "image": "sample-1.png" },
+    { "name": "Merlot",             "detail": "France. Plum and soft spice. Bottle 750 ml",        "price": 1100, "new": false, "shelf": 1, "order": 2, "image": "sample-2.png" },
+    { "name": "Shiraz",             "detail": "Australia. Bold, peppery, ripe fruit. Bottle 750 ml","price": 1350, "new": true,  "shelf": 1, "order": 3, "image": "sample-3.png" },
+    { "name": "Chardonnay",         "detail": "New Zealand. Butter and stone fruit. Bottle 750 ml", "price": 1250, "new": false, "shelf": 2, "order": 1, "image": "sample-4.png" },
+    { "name": "Sauvignon Blanc",    "detail": "New Zealand. Zesty and fresh. Bottle 750 ml",        "price": 1150, "new": true,  "shelf": 2, "order": 2, "image": "sample-5.png" },
+    { "name": "Rosé",               "detail": "Provence. Dry, strawberry, pale pink. Bottle 750 ml","price": 990,  "new": false, "shelf": 2, "order": 3, "image": "sample-6.png" }
+  ]
+}

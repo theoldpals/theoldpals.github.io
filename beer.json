@@ -1,0 +1,15 @@
+{
+  "title": "Beer",
+  "currency": "฿",
+  "imageFolder": "beer_images/",
+  "items": [
+    { "name": "House Lager",  "detail": "Crisp, light and cold. 330 ml, 5.0%",          "price": 120, "new": false, "shelf": 1, "order": 1, "image": "sample-1.png" },
+    { "name": "Hoppy IPA",    "detail": "Citrus and pine, bitter finish. 330 ml, 6.5%", "price": 220, "new": true,  "shelf": 1, "order": 2, "image": "sample-2.png" },
+    { "name": "Dark Stout",   "detail": "Coffee and cocoa, smooth body. 330 ml, 5.8%",  "price": 240, "new": false, "shelf": 1, "order": 3, "image": "sample-3.png" },
+    { "name": "Wheat Beer",   "detail": "Banana and clove, hazy. 500 ml, 5.2%",         "price": 260, "new": false, "shelf": 2, "order": 1, "image": "sample-4.png" },
+    { "name": "Czech Pilsner","detail": "Floral hops, clean and dry. 330 ml, 4.8%",     "price": 180, "new": true,  "shelf": 2, "order": 2, "image": "sample-5.png" },
+    { "name": "Pale Ale",     "detail": "Caramel malt, gentle bitterness. 330 ml, 5.4%","price": 200, "new": false, "shelf": 2, "order": 3, "image": "sample-6.png" },
+    { "name": "Session IPA",  "detail": "All the hops, less alcohol. 330 ml, 4.2%",     "price": 190, "new": false, "shelf": 3, "order": 2, "image": "sample-2.png" },
+    { "name": "Light Lager",  "detail": "Easy drinking. 330 ml, 4.0%",                  "price": 110, "new": false, "shelf": 3, "order": 1, "image": "sample-1.png" }
+  ]
+}

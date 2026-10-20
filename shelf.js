@@ -1,0 +1,133 @@
+(function(){
+  // ---------------------------------------------------------------
+  // Shelf page. Everything comes from the JSON file named in
+  // <body data-menu="beer.json">. To change the shelf, edit the JSON
+  // and upload bottle PNGs (transparent background) into the image
+  // folder it names. No code changes needed.
+  //
+  //   name    shown on the card and the shelf tag
+  //   detail  shown when the customer taps the bottle
+  //   price   number (or text like "190 / 650")
+  //   new     true puts a gold star above the bottle
+  //   shelf   1 = top shelf, 2 = next one down ...
+  //   order   1 = leftmost on that shelf, then 2, 3 ...
+  //   image   file name inside imageFolder
+  //   hidden  true hides the item without deleting it (optional)
+  // ---------------------------------------------------------------
+  var bust = '?v=' + Math.floor(Date.now() / 60000); // refresh at most once a minute
+  var file = document.body.getAttribute('data-menu');
+
+  var cabinet = document.getElementById('cabinet');
+  var card = document.getElementById('card');
+  var cardImg = document.getElementById('cardImg');
+  var cardName = document.getElementById('cardName');
+  var cardNew = document.getElementById('cardNew');
+  var cardDetail = document.getElementById('cardDetail');
+  var cardPrice = document.getElementById('cardPrice');
+
+  function num(v, fallback){
+    var n = parseFloat(v);
+    return isNaN(n) ? fallback : n;
+  }
+
+  function priceText(price, currency){
+    if (price === undefined || price === null || price === '') return '';
+    if (typeof price === 'number') return currency + price.toLocaleString('en-US');
+    return String(price);
+  }
+
+  function showError(html){
+    cabinet.innerHTML = '<div class="state">' + html + '</div>';
+  }
+
+  function render(data){
+    var folder = data.imageFolder || '';
+    var currency = data.currency === undefined ? '฿' : data.currency;
+    if (data.title) document.title = 'The Old Pals — ' + data.title;
+
+    var items = (data.items || []).filter(function(it){ return it && !it.hidden; });
+    if (!items.length){
+      showError('Nothing on the shelf yet.<br><br>Add bottles to <code>' + file + '</code>.');
+      return;
+    }
+
+    // Group by shelf number, then sort each shelf left to right by order.
+    var shelves = {};
+    items.forEach(function(it, i){
+      it._i = i;
+      var s = num(it.shelf, 1);
+      (shelves[s] = shelves[s] || []).push(it);
+    });
+    var numbers = Object.keys(shelves).map(Number).sort(function(a, b){ return a - b; });
+
+    cabinet.innerHTML = '';
+    numbers.forEach(function(s){
+      var list = shelves[s].sort(function(a, b){
+        return num(a.order, 999) - num(b.order, 999) || a._i - b._i;
+      });
+      var shelf = document.createElement('section');
+      shelf.className = 'shelf';
+      shelf.setAttribute('aria-label', 'Shelf ' + s);
+      var row = document.createElement('div');
+      row.className = 'row';
+      list.forEach(function(it){
+        var src = folder + (it.image || '') + bust;
+        var price = priceText(it.price, currency);
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'item';
+        btn.setAttribute('aria-label', (it.name || '') + (price ? ', ' + price : '') + (it.new ? ', new' : ''));
+        if (it.new){
+          var star = document.createElement('span');
+          star.className = 'star';
+          star.setAttribute('aria-hidden', 'true');
+          star.innerHTML = '&#9733;<small>NEW</small>';
+          btn.appendChild(star);
+        }
+        var img = document.createElement('img');
+        img.src = src;
+        img.alt = it.name || '';
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        btn.appendChild(img);
+        var tag = document.createElement('span');
+        tag.className = 'tag';
+        tag.textContent = price || it.name || '';
+        btn.appendChild(tag);
+        btn.addEventListener('click', function(){ openCard(it, src, price); });
+        row.appendChild(btn);
+      });
+      shelf.appendChild(row);
+      cabinet.appendChild(shelf);
+      // Too many bottles for the screen: start from the left and let it scroll.
+      if (row.scrollWidth > row.clientWidth + 1) row.classList.add('wide');
+    });
+  }
+
+  function openCard(it, src, price){
+    cardImg.src = src;
+    cardImg.alt = it.name || '';
+    cardName.textContent = it.name || '';
+    cardNew.style.display = it.new ? 'inline-block' : 'none';
+    cardDetail.textContent = it.detail || '';
+    cardPrice.textContent = price;
+    card.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('closeBtn').focus();
+  }
+  function closeCard(){
+    card.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('closeBtn').addEventListener('click', closeCard);
+  card.addEventListener('click', function(e){ if (e.target === card) closeCard(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeCard(); });
+
+  fetch(file + bust)
+    .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(render)
+    .catch(function(){
+      showError('Could not read <code>' + file + '</code>.<br><br>' +
+        'Check that the file exists and is valid JSON<br>(a missing comma is the usual cause).');
+    });
+})();

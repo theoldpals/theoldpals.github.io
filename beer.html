@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Old Pals — Beer</title>
+<meta name="theme-color" content="#111111">
+<meta name="description" content="The Old Pals beer shelf">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shelf.css">
+</head>
+<body data-menu="beer.json">
+
+<header>
+  <div class="wordmark">The Old Pals</div>
+  <nav>
+    <a href="./">Menu</a>
+    <a href="beer.html" aria-current="page">Beer</a>
+    <a href="wine.html">Wine</a>
+  </nav>
+  <p class="hint">Tap a bottle for details</p>
+</header>
+
+<main>
+  <div class="cabinet" id="cabinet"><div class="state">Loading…</div></div>
+</main>
+
+<footer>The Old Pals</footer>
+
+<div id="card" role="dialog" aria-modal="true" aria-labelledby="cardName">
+  <div class="sheet">
+    <button id="closeBtn" aria-label="Close">&times;</button>
+    <img id="cardImg" alt="">
+    <h2 id="cardName"></h2>
+    <span class="new" id="cardNew">&#9733; NEW</span>
+    <p id="cardDetail"></p>
+    <div class="price" id="cardPrice"></div>
+  </div>
+</div>
+
+<script src="shelf.js"></script>
+</body>
+</html>
