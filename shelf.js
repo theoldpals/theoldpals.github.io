@@ -11,8 +11,12 @@
   //   new     true puts a gold star above the bottle
   //   shelf   1 = top shelf, 2 = next one down ...
   //   order   1 = leftmost on that shelf, then 2, 3 ...
-  //   image   file name inside imageFolder
+  //   image   file name inside imageFolder (image_name also works)
+  //   unit    "Bottle", "Can" ... shown next to the price (optional)
+  //   scale   bottle height, 1 = tallest. 0.72 suits a can (optional)
   //   hidden  true hides the item without deleting it (optional)
+  //
+  // "shelfNames": {"1": "Thai & Lao", ...} puts a small sign on a shelf.
   // ---------------------------------------------------------------
   var bust = '?v=' + Math.floor(Date.now() / 60000); // refresh at most once a minute
   var file = document.body.getAttribute('data-menu');
@@ -42,6 +46,7 @@
 
   function render(data){
     var folder = data.imageFolder || '';
+    var shelfNames = data.shelfNames || {};
     var currency = data.currency === undefined ? '฿' : data.currency;
     if (data.title) document.title = 'The Old Pals — ' + data.title;
 
@@ -67,11 +72,17 @@
       });
       var shelf = document.createElement('section');
       shelf.className = 'shelf';
-      shelf.setAttribute('aria-label', 'Shelf ' + s);
+      shelf.setAttribute('aria-label', shelfNames[s] || 'Shelf ' + s);
+      if (shelfNames[s]){
+        var sign = document.createElement('div');
+        sign.className = 'sign';
+        sign.textContent = shelfNames[s];
+        shelf.appendChild(sign);
+      }
       var row = document.createElement('div');
       row.className = 'row';
       list.forEach(function(it){
-        var src = folder + (it.image || '') + bust;
+        var src = folder + (it.image || it.image_name || 'no-image.png') + bust;
         var price = priceText(it.price, currency);
         var btn = document.createElement('button');
         btn.type = 'button';
@@ -89,6 +100,12 @@
         img.alt = it.name || '';
         img.loading = 'lazy';
         img.decoding = 'async';
+        var scale = num(it.scale, 1);
+        if (scale !== 1) img.style.height = 'calc(var(--bottle-h) * ' + scale + ')';
+        img.onerror = function(){
+          img.onerror = null;
+          img.src = folder + 'no-image.png' + bust;
+        };
         btn.appendChild(img);
         var tag = document.createElement('span');
         tag.className = 'tag';
@@ -99,8 +116,6 @@
       });
       shelf.appendChild(row);
       cabinet.appendChild(shelf);
-      // Too many bottles for the screen: start from the left and let it scroll.
-      if (row.scrollWidth > row.clientWidth + 1) row.classList.add('wide');
     });
   }
 
@@ -110,7 +125,7 @@
     cardName.textContent = it.name || '';
     cardNew.style.display = it.new ? 'inline-block' : 'none';
     cardDetail.textContent = it.detail || '';
-    cardPrice.textContent = price;
+    cardPrice.textContent = price + (price && it.unit ? ' / ' + String(it.unit).toLowerCase() : '');
     card.classList.add('open');
     document.body.style.overflow = 'hidden';
     document.getElementById('closeBtn').focus();

@@ -44,6 +44,12 @@ main{max-width:760px;margin:0 auto;padding:6px 16px 40px}
   padding:14px 0 6px;
 }
 .shelf{position:relative;margin-bottom:14px}
+.sign{ /* small brass plate naming the shelf */
+  position:absolute;top:4px;left:12px;z-index:2;
+  font-size:9px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+  color:#3a2610;background:linear-gradient(#e8c877,#b8913f);
+  padding:3px 8px;border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,.5);
+}
 .shelf::after{ /* the plank the bottles stand on */
   content:"";position:absolute;left:0;right:0;bottom:0;height:34px;
   background:linear-gradient(#a06c40 0,#8a5a33 30%,#6b4325 100%);
@@ -53,12 +59,14 @@ main{max-width:760px;margin:0 auto;padding:6px 16px 40px}
 }
 .row{
   position:relative;z-index:1;
-  display:flex;align-items:flex-end;justify-content:center;gap:clamp(10px,4vw,28px);
+  display:flex;align-items:flex-end;gap:clamp(8px,3vw,24px);
   padding:34px 14px 0;
   overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
 }
 .row::-webkit-scrollbar{display:none}
-.row.wide{justify-content:flex-start}
+/* centred when it fits, scrollable from the first bottle when it doesn't */
+.row>:first-child{margin-left:auto}
+.row>:last-child{margin-right:auto}
 
 .item{
   position:relative;flex:0 0 auto;
