@@ -11,6 +11,8 @@
   //   new     true puts a gold star above the bottle
   //   shelf   1 = top shelf, 2 = next one down ...
   //   order   1 = leftmost on that shelf, then 2, 3 ...
+  //           To show a bottle on several shelves, use lists that pair up:
+  //           "shelf": [1, 3], "order": [2, 5] = 2nd on shelf 1, 5th on shelf 3
   //   image   file name inside imageFolder (image_name also works)
   //   unit    "Bottle", "Can" ... shown next to the price (optional)
   //   scale   bottle height, 1 = tallest. 0.72 suits a can (optional)
@@ -57,19 +59,24 @@
     }
 
     // Group by shelf number, then sort each shelf left to right by order.
+    // An item listed on several shelves gets one spot on each.
     var shelves = {};
     items.forEach(function(it, i){
-      it._i = i;
-      var s = num(it.shelf, 1);
-      (shelves[s] = shelves[s] || []).push(it);
+      var list = [].concat(it.shelf === undefined ? 1 : it.shelf);
+      var orders = [].concat(it.order === undefined ? [] : it.order);
+      list.forEach(function(sh, k){
+        var s = num(sh, 1);
+        var spot = { it: it, i: i, order: num(orders[k], 999) };
+        (shelves[s] = shelves[s] || []).push(spot);
+      });
     });
     var numbers = Object.keys(shelves).map(Number).sort(function(a, b){ return a - b; });
 
     cabinet.innerHTML = '';
     numbers.forEach(function(s){
       var list = shelves[s].sort(function(a, b){
-        return num(a.order, 999) - num(b.order, 999) || a._i - b._i;
-      });
+        return a.order - b.order || a.i - b.i;
+      }).map(function(spot){ return spot.it; });
       var shelf = document.createElement('section');
       shelf.className = 'shelf';
       shelf.setAttribute('aria-label', shelfNames[s] || 'Shelf ' + s);
