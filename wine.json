@@ -18,7 +18,7 @@
     {"name": "Jacob's Creek Classic Merlot 750 ml", "detail": "Category : Wine\nType : Red Wine\nBrand : Jacob's Creek\nGrape : Merlot\nRegion : South Eastern Australia\nCountry : Australia\nABV : 13.50%", "price": 850, "unit": "Bottle", "new": false, "shelf": 4, "order": 9, "scale": 1.0, "image": "jacobs-creek-classic-merlot-750ml.png"},
     {"name": "Montes Chardonnay", "detail": "", "price": 1200, "unit": "Bottle", "new": true, "shelf": [3, 4], "order": [1, 10], "scale": 1.0, "image": "montes-chardonnay.png"},
     {"name": "Montes Merlot", "detail": "", "price": 1200, "unit": "Bottle", "new": true, "shelf": [3, 4], "order": [2, 11], "scale": 1.0, "image": "montes-merlot.png"},
-    {"name": "Two Oceans Cabernet Sauvignon", "detail": "", "price": 850, "unit": "Bottle", "new": true, "shelf": [3, 4], "order": [3, 12], "scale": 1.0, "image": "two-oceans-cabernet-sauvignon.png"},
+    {"name": "Two Oceans Cabernet Sauvignon Merlot", "detail": "", "price": 850, "unit": "Bottle", "new": true, "shelf": [3, 4], "order": [3, 12], "scale": 1.0, "image": "two-oceans-cabernet-sauvignon-merlot.png"},
     {"name": "Two Oceans Sauvignon Blanc", "detail": "", "price": 850, "unit": "Bottle", "new": true, "shelf": [3, 4], "order": [4, 13], "scale": 1.0, "image": "two-oceans-sauvignon-blanc.png"},
     {"name": "Yellow Tail Shiraz", "detail": "", "price": 900, "unit": "Bottle", "new": true, "shelf": [3, 4], "order": [5, 14], "scale": 1.0, "image": "yellow-tail-shiraz.png"}
   ]
