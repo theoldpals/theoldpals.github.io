@@ -18,7 +18,16 @@
   //   scale   bottle height, 1 = tallest. 0.72 suits a can (optional)
   //   hidden  true hides the item without deleting it (optional)
   //
+  //   country  shown on the tap card, e.g. "Australia" (optional)
+  //   type     shown on the tap card, e.g. "Red", "White" (optional)
+  //   taste    {"body": 70, "tannin": 60, "acidity": 50, "sweetness": 10}
+  //            0-100 each; shown as bars on the tap card. Leave a key out
+  //            (e.g. tannin for a white) to hide that bar. (optional)
+  //   vivino   Vivino rating like 3.8; shown on the tap card (optional)
+  //
   // "shelfNames": {"1": "Thai & Lao", ...} puts a small sign on a shelf.
+  // "shelfGroups": {"10": "Old World", "20": "New World"} puts a heading
+  // above the first shelf numbered from 10 up to the next group's number.
   // ---------------------------------------------------------------
   var bust = '?v=' + Math.floor(Date.now() / 60000); // refresh at most once a minute
   var file = document.body.getAttribute('data-menu');
@@ -30,6 +39,9 @@
   var cardNew = document.getElementById('cardNew');
   var cardDetail = document.getElementById('cardDetail');
   var cardPrice = document.getElementById('cardPrice');
+  var cardMeta = document.getElementById('cardMeta');
+  var cardVivino = document.getElementById('cardVivino');
+  var cardTaste = document.getElementById('cardTaste');
 
   function num(v, fallback){
     var n = parseFloat(v);
@@ -49,6 +61,8 @@
   function render(data){
     var folder = data.imageFolder || '';
     var shelfNames = data.shelfNames || {};
+    var groups = Object.keys(data.shelfGroups || {}).map(Number).sort(function(a, b){ return a - b; });
+    var shownGroup = null;
     var currency = data.currency === undefined ? '฿' : data.currency;
     if (data.title) document.title = 'The Old Pals — ' + data.title;
 
@@ -77,6 +91,15 @@
       var list = shelves[s].sort(function(a, b){
         return a.order - b.order || a.i - b.i;
       }).map(function(spot){ return spot.it; });
+      var g = null;
+      groups.forEach(function(n){ if (s >= n) g = n; });
+      if (g !== null && g !== shownGroup && data.shelfGroups[g]){
+        var head = document.createElement('h2');
+        head.className = 'group';
+        head.textContent = data.shelfGroups[g];
+        cabinet.appendChild(head);
+      }
+      shownGroup = g;
       var shelf = document.createElement('section');
       shelf.className = 'shelf';
       shelf.setAttribute('aria-label', shelfNames[s] || 'Shelf ' + s);
@@ -156,7 +179,28 @@
     cardImg.alt = it.name || '';
     cardName.textContent = it.name || '';
     cardNew.style.display = it.new ? 'inline-block' : 'none';
-    cardDetail.textContent = it.detail || '';
+    var detail = it.detail || '';
+    // the coloured taste bars replace a hand-typed text meter in the detail
+    if (it.taste) detail = detail.replace(/\n*มิเตอร์รสชาติ[^\n]*(\n[^\n]*[█░][^\n]*)+/, '');
+    cardDetail.textContent = detail;
+    cardMeta.textContent = [it.type, it.country].filter(Boolean).join(' · ');
+    cardVivino.innerHTML = '';
+    if (it.vivino){
+      cardVivino.innerHTML = '<b>&#9733; ' + num(it.vivino, 0).toFixed(1) + '</b> Vivino';
+    }
+    cardTaste.innerHTML = '';
+    var taste = it.taste || {};
+    [['body', 'Body', 'บอดี้'], ['tannin', 'Tannin', 'แทนนิน'],
+     ['acidity', 'Acidity', 'ความเปรี้ยว'], ['sweetness', 'Sweetness', 'ความหวาน']].forEach(function(t){
+      if (taste[t[0]] === undefined || taste[t[0]] === null) return;
+      var v = Math.max(0, Math.min(100, num(taste[t[0]], 0)));
+      var rowEl = document.createElement('div');
+      rowEl.className = 'meter';
+      rowEl.innerHTML = '<span class="label"></span><span class="bar"><i></i></span>';
+      rowEl.querySelector('.label').textContent = t[1] + ' ' + t[2];
+      rowEl.querySelector('i').style.width = v + '%';
+      cardTaste.appendChild(rowEl);
+    });
     cardPrice.textContent = price + (price && it.unit ? ' / ' + String(it.unit).toLowerCase() : '');
     card.classList.add('open');
     document.body.style.overflow = 'hidden';
