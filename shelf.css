@@ -45,7 +45,7 @@ main{max-width:760px;margin:0 auto;padding:6px 16px 40px}
 }
 .shelf{position:relative;margin-bottom:14px}
 .sign{ /* small brass plate naming the shelf */
-  position:absolute;top:4px;left:12px;z-index:2;
+  position:relative;display:inline-block;margin:8px 0 0 12px;z-index:2;
   font-size:9px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;
   color:#3a2610;background:linear-gradient(#e8c877,#b8913f);
   padding:3px 8px;border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,.5);
@@ -60,10 +60,21 @@ main{max-width:760px;margin:0 auto;padding:6px 16px 40px}
 .row{
   position:relative;z-index:1;
   display:flex;align-items:flex-end;gap:clamp(8px,3vw,24px);
-  padding:34px 14px 0;
+  padding:48px 14px 0;
   overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
 }
 .row::-webkit-scrollbar{display:none}
+.more{ /* right-edge arrow, shown only when the shelf scrolls */
+  position:absolute;right:0;top:48px;bottom:34px;z-index:3;width:44px;
+  display:none;align-items:center;justify-content:flex-end;padding:0 8px 0 0;
+  border:0;cursor:pointer;color:#fff;font-size:34px;line-height:1;
+  background:linear-gradient(to right,rgba(40,24,12,0),rgba(40,24,12,.85));
+  text-shadow:0 1px 3px rgba(0,0,0,.8);
+  animation:nudge 1.6s ease-in-out infinite;
+}
+.shelf.has-more .more{display:flex}
+@keyframes nudge{50%{padding-right:2px}}
+@media (prefers-reduced-motion:reduce){.more{animation:none}}
 /* centred when it fits, scrollable from the first bottle when it doesn't */
 .row>:first-child{margin-left:auto}
 .row>:last-child{margin-right:auto}
@@ -87,13 +98,13 @@ main{max-width:760px;margin:0 auto;padding:6px 16px 40px}
   max-width:120px;overflow:hidden;text-overflow:ellipsis;
 }
 .star{
-  position:absolute;top:-30px;left:50%;transform:translateX(-50%);
-  display:flex;align-items:center;gap:3px;
+  position:absolute;top:-44px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:1px;
   color:var(--gold);font-size:20px;line-height:1;
   text-shadow:0 0 8px rgba(242,193,78,.8),0 1px 2px rgba(0,0,0,.7);
   animation:twinkle 1.8s ease-in-out infinite;
 }
-.star small{font-size:9px;letter-spacing:.18em;font-weight:500}
+.star small{font-size:8px;letter-spacing:.12em;font-weight:500}
 @keyframes twinkle{50%{transform:translateX(-50%) scale(1.15)}}
 @media (prefers-reduced-motion:reduce){.star{animation:none}}
 
