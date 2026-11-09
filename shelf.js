@@ -122,8 +122,33 @@
         row.appendChild(btn);
       });
       shelf.appendChild(row);
+      addMoreHint(shelf, row);
       cabinet.appendChild(shelf);
     });
+  }
+
+  // When a shelf holds more bottles than fit on screen, show a "more" arrow
+  // on the right edge. Tapping it slides the shelf; it hides at the end.
+  function addMoreHint(shelf, row){
+    var more = document.createElement('button');
+    more.type = 'button';
+    more.className = 'more';
+    more.setAttribute('aria-label', 'More on this shelf');
+    more.innerHTML = '&#8250;';
+    more.addEventListener('click', function(){
+      row.scrollBy({ left: row.clientWidth * 0.8, behavior: 'smooth' });
+    });
+    shelf.appendChild(more);
+    function update(){
+      var left = row.scrollWidth - row.clientWidth - row.scrollLeft;
+      shelf.classList.toggle('has-more', left > 4);
+    }
+    row.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    Array.prototype.forEach.call(row.querySelectorAll('img'), function(img){
+      img.addEventListener('load', update);
+    });
+    setTimeout(update, 0);
   }
 
   function openCard(it, src, price){
