@@ -20,6 +20,7 @@
     {"name": "Montes Merlot", "detail": "", "price": 1200, "unit": "Bottle", "type": "Red", "country": "Chile", "taste": null, "vivino": null, "new": true, "shelf": [3, 21], "order": [2, 2], "scale": 1.0, "image": "montes-merlot.png"},
     {"name": "Two Oceans Cabernet Sauvignon Merlot", "detail": "", "price": 850, "unit": "Bottle", "type": "Red", "country": "South Africa", "taste": null, "vivino": null, "new": true, "shelf": [3, 22], "order": [3, 1], "scale": 1.0, "image": "two-oceans-cabernet-sauvignon-merlot.png"},
     {"name": "Two Oceans Sauvignon Blanc", "detail": "", "price": 850, "unit": "Bottle", "type": "White", "country": "South Africa", "taste": null, "vivino": null, "new": true, "shelf": [3, 22], "order": [4, 2], "scale": 1.0, "image": "two-oceans-sauvignon-blanc.png"},
-    {"name": "Yellow Tail Shiraz", "detail": "", "price": 900, "unit": "Bottle", "type": "Red", "country": "Australia", "taste": null, "vivino": null, "new": true, "shelf": [3, 20], "order": [5, 6], "scale": 1.0, "image": "yellow-tail-shiraz.png"}
+    {"name": "Yellow Tail Shiraz", "detail": "", "price": 900, "unit": "Bottle", "type": "Red", "country": "Australia", "taste": null, "vivino": null, "new": true, "shelf": [3, 20], "order": [5, 6], "scale": 1.0, "image": "yellow-tail-shiraz.png"},
+    {"name": "Jacob's Creek Classic Chardonnay 750 ml", "detail": "Category : Wine\nType : White Wine\nBrand : Jacob's Creek\nGrape : Chardonnay\nCountry : Australia", "price": 850, "unit": "Bottle", "type": "White", "country": "Australia", "taste": null, "vivino": null, "new": true, "shelf": [3, 20], "order": [6, 7], "scale": 1.0, "image": "jacobs-creek-classic-chardonnay-750ml.png"}
   ]
 }
