@@ -97,6 +97,14 @@ main{max-width:760px;margin:0 auto;padding:6px 16px 40px}
   text-shadow:0 1px 1px rgba(0,0,0,.6);
   max-width:120px;overflow:hidden;text-overflow:ellipsis;
 }
+.label{ /* item name under the price, only with "showNames" */
+  width:78px;height:34px;margin-top:-6px;
+  font-size:9px;line-height:1.2;text-align:center;color:#f3e2c0;
+  text-shadow:0 1px 1px rgba(0,0,0,.7);
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+.show-names .shelf::after{height:62px}
+.show-names .more{bottom:62px}
 .star{
   position:absolute;top:-44px;left:50%;transform:translateX(-50%);
   display:flex;flex-direction:column;align-items:center;gap:1px;
@@ -129,7 +137,23 @@ footer{text-align:center;color:var(--muted);font-size:11px;letter-spacing:.18em;
 .sheet img{height:min(46vh,320px);width:auto;max-width:100%;filter:drop-shadow(0 6px 6px rgba(0,0,0,.35))}
 .sheet h2{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:24px;margin:12px 0 4px}
 .sheet .new{display:inline-block;background:var(--ink);color:var(--gold);font-size:10px;letter-spacing:.2em;padding:4px 8px;border-radius:3px;margin-bottom:6px}
-.sheet p{color:var(--muted);font-size:14px;line-height:1.6;margin:6px 0 12px}
+.sheet p{color:var(--muted);font-size:14px;line-height:1.6;margin:6px 0 12px;white-space:pre-line;text-align:left}
+.sheet .meta{color:var(--muted);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 8px}
+.sheet .meta:empty,.sheet .vivino:empty,.sheet .taste:empty{display:none}
+.sheet .vivino{font-size:14px;color:var(--muted);margin:4px 0 10px}
+.sheet .vivino b{color:#b8862b;font-size:18px;margin-right:4px}
+.sheet .taste{margin:6px auto 12px;max-width:320px;text-align:left}
+.meter{display:flex;align-items:center;gap:10px;margin:7px 0;font-size:12px;color:var(--ink)}
+.meter .label{flex:0 0 132px}
+.meter .bar{flex:1;height:8px;background:#e2dccf;border-radius:4px;overflow:hidden}
+.meter .bar i{display:block;height:100%;background:linear-gradient(90deg,#8a2a3a,#b8862b);border-radius:4px}
+.group{ /* Old World / New World heading inside the cabinet */
+  margin:10px 12px 2px;padding:6px 0 4px;text-align:center;
+  font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:18px;
+  letter-spacing:.24em;text-transform:uppercase;color:#f3e2c0;
+  border-top:1px solid rgba(243,226,192,.35);border-bottom:1px solid rgba(243,226,192,.35);
+  text-shadow:0 1px 2px rgba(0,0,0,.6);
+}
 .sheet .price{font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700}
 #closeBtn{
   position:absolute;top:8px;right:8px;width:36px;height:36px;border:0;border-radius:50%;
