@@ -5,7 +5,7 @@
   "showNames": true,
   "shelfNames": {"1": "Cakes", "2": "Bakery", "3": "Savoury"},
   "items": [
-    {"name": "Cheesecake", "detail": "", "price": 150, "unit": "Piece", "new": false, "shelf": 1, "order": 1, "scale": 0.42, "image": "cheesecake.png"},
+    {"name": "Burnt Cheesecake", "detail": "", "price": 150, "unit": "Piece", "new": false, "shelf": 1, "order": 1, "scale": 0.52, "image": "burnt-cheesecake.png"},
     {"name": "Strawberry Cheesecake", "detail": "", "price": 160, "unit": "Piece", "new": false, "shelf": 1, "order": 2, "scale": 0.42, "image": "strawberry-cheesecake.png"},
     {"name": "Chocolate Tart Caramel", "detail": "", "price": 150, "unit": "Piece", "new": false, "shelf": 1, "order": 3, "scale": 0.42, "image": "chocolate-tart-caramel.png"},
     {"name": "Fruitcake", "detail": "", "price": 120, "unit": "Piece", "new": false, "shelf": 1, "order": 4, "scale": 0.42, "image": "fruitcake.png"},
