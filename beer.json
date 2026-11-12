@@ -13,7 +13,6 @@
     {"name": "Kirin Ichiban 330 ml", "detail": "", "price": 140, "unit": "Bottle", "new": false, "shelf": 2, "order": 3, "scale": 0.85, "image": "kirin-ichiban-330ml.png"},
     {"name": "Sapporo Bottle 330 ml", "detail": "", "price": 160, "unit": "Bottle", "new": false, "shelf": 2, "order": 4, "scale": 0.85, "image": "sapporo-beer.png"},
     {"name": "Sapporo Can 330 ml", "detail": "", "price": 170, "unit": "Can", "new": true, "shelf": 2, "order": 5, "scale": 0.72, "image": "sapporo-can-330ml.png"},
-    {"name": "Asahi Super Dry Can", "detail": "", "price": 150, "unit": "Can", "new": true, "shelf": 2, "order": 6, "scale": 0.72, "image": "asahi-dry-can.png"},
     {"name": "Heineken Large 620 ml", "detail": "", "price": 160, "unit": "Bottle", "new": false, "shelf": 3, "order": 1, "scale": 1.0, "image": "heineken-large-620ml.png"},
     {"name": "Heineken Small 325 ml", "detail": "", "price": 100, "unit": "Bottle", "new": false, "shelf": 3, "order": 2, "scale": 0.85, "image": "heineken-small-bottle-325ml.png"},
     {"name": "Budweiser 330 ml", "detail": "Budweiser Bottle 330 ml (Small)", "price": 100, "unit": "Bottle", "new": false, "shelf": 3, "order": 3, "scale": 0.85, "image": "budweiser-330ml.png"},
