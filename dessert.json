@@ -3,7 +3,7 @@
   "currency": "฿",
   "imageFolder": "dessert_images/",
   "showNames": true,
-  "shelfNames": {"1": "Cakes", "2": "Bakery", "3": "Savoury"},
+  "shelfNames": {"1": "Cakes", "2": "Bakery"},
   "items": [
     {"name": "Burnt Cheesecake", "detail": "", "price": 150, "unit": "Piece", "new": false, "shelf": 1, "order": 1, "scale": 0.52, "image": "burnt-cheesecake.png"},
     {"name": "Biscoff Caramel Cheesecake", "detail": "", "price": 180, "unit": "Piece", "new": true, "shelf": 1, "order": 2, "scale": 0.52, "image": "biscoff-caramel-cheesecake.png"},
@@ -13,7 +13,6 @@
     {"name": "Croissant", "detail": "Choose your croissant:\n• Plain — ฿100\n• Caramel drizzle — ฿115\n• Chocolate drizzle — ฿120\n• Ham & Cheese — ฿140", "price": "฿100–140", "unit": "Piece", "new": false, "shelf": 2, "order": 1, "scale": 0.5, "image": "croissant.png"},
     {"name": "Croffle", "detail": "Choose your croffle:\n• Plain — ฿50\n• Caramel drizzle — ฿60\n• Chocolate drizzle — ฿70", "price": "฿50–70", "unit": "Piece", "new": false, "shelf": 2, "order": 2, "scale": 0.5, "image": "croffle.png"},
     {"name": "Scone Cranberries", "detail": "", "price": 60, "unit": "Piece", "new": false, "shelf": 2, "order": 3, "scale": 0.5, "image": "scone-cranberry.png"},
-    {"name": "Double Dark Chocolate Cookies", "detail": "", "price": 85, "unit": "Piece", "new": true, "shelf": 2, "order": 4, "scale": 0.5, "image": "double-dark-chocolate-cookies.png"},
-    {"name": "Sandwich Ham & Cheese", "detail": "", "price": 60, "unit": "Piece", "new": false, "shelf": 3, "order": 1, "scale": 0.42, "image": "sandwich-ham-cheese.png"}
+    {"name": "Double Dark Chocolate Cookies", "detail": "", "price": 85, "unit": "Piece", "new": true, "shelf": 2, "order": 4, "scale": 0.5, "image": "double-dark-chocolate-cookies.png"}
   ]
 }
