@@ -8,7 +8,7 @@
     {"name": "Burnt Cheesecake", "detail": "", "price": 150, "unit": "Piece", "new": false, "shelf": 1, "order": 1, "scale": 0.52, "image": "burnt-cheesecake.png"},
     {"name": "Biscoff Caramel Cheesecake", "detail": "", "price": 180, "unit": "Piece", "new": true, "shelf": 1, "order": 2, "scale": 0.52, "image": "biscoff-caramel-cheesecake.png"},
     {"name": "Strawberry Cheesecake", "detail": "", "price": 160, "unit": "Piece", "new": false, "shelf": 1, "order": 3, "scale": 0.42, "image": "strawberry-cheesecake.png"},
-    {"name": "Chocolate Tart Caramel", "detail": "", "price": 150, "unit": "Piece", "new": false, "shelf": 1, "order": 4, "scale": 0.42, "image": "chocolate-tart-caramel.png"},
+    {"name": "Caramel Dark Chocolate Tart", "detail": "", "price": 150, "unit": "Piece", "new": false, "shelf": 1, "order": 4, "scale": 0.52, "image": "caramel-dark-chocolate-tart.png"},
     {"name": "Fruitcake", "detail": "", "price": 120, "unit": "Piece", "new": false, "shelf": 1, "order": 5, "scale": 0.52, "image": "fruitcake.png"},
     {"name": "Croissant", "detail": "", "price": 100, "unit": "Piece", "new": false, "shelf": 2, "order": 1, "scale": 0.42, "image": "croissant.png"},
     {"name": "Croffle", "detail": "", "price": 50, "unit": "Piece", "new": false, "shelf": 2, "order": 2, "scale": 0.42, "image": "croffle.png"},
