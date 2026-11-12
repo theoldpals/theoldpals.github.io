@@ -11,7 +11,9 @@
     {"name": "Federbräu 320 ml", "detail": "เฟเดอร์บรอย ขวดเล็ก 320 CC.", "price": 100, "unit": "Bottle", "new": false, "shelf": 1, "order": 6, "scale": 0.85, "image": "federbrau-330ml.png"},
     {"name": "Asahi Super Dry 330 ml", "detail": "", "price": 130, "unit": "Bottle", "new": false, "shelf": 2, "order": 1, "scale": 0.85, "image": "asahi-super-dry-bottle-330ml.png"},
     {"name": "Kirin Ichiban 330 ml", "detail": "", "price": 140, "unit": "Bottle", "new": false, "shelf": 2, "order": 3, "scale": 0.85, "image": "kirin-ichiban-330ml.png"},
-    {"name": "Sapporo", "detail": "", "price": 160, "unit": "Bottle", "new": false, "shelf": 2, "order": 4, "scale": 0.85, "image": "sapporo-beer.png"},
+    {"name": "Sapporo Bottle 330 ml", "detail": "", "price": 160, "unit": "Bottle", "new": false, "shelf": 2, "order": 4, "scale": 0.85, "image": "sapporo-beer.png"},
+    {"name": "Sapporo Can 330 ml", "detail": "", "price": 170, "unit": "Can", "new": true, "shelf": 2, "order": 5, "scale": 0.72, "image": "sapporo-can-330ml.png"},
+    {"name": "Asahi Super Dry Can", "detail": "", "price": 150, "unit": "Can", "new": true, "shelf": 2, "order": 6, "scale": 0.72, "image": "asahi-dry-can.png"},
     {"name": "Heineken Large 620 ml", "detail": "", "price": 160, "unit": "Bottle", "new": false, "shelf": 3, "order": 1, "scale": 1.0, "image": "heineken-large-620ml.png"},
     {"name": "Heineken Small 325 ml", "detail": "", "price": 100, "unit": "Bottle", "new": false, "shelf": 3, "order": 2, "scale": 0.85, "image": "heineken-small-bottle-325ml.png"},
     {"name": "Budweiser 330 ml", "detail": "Budweiser Bottle 330 ml (Small)", "price": 100, "unit": "Bottle", "new": false, "shelf": 3, "order": 3, "scale": 0.85, "image": "budweiser-330ml.png"},
@@ -38,6 +40,7 @@
     {"name": "Brothers Orange & Lemon", "detail": "", "price": 320, "unit": "Bottle", "new": false, "shelf": 7, "order": 1, "scale": 0.92, "image": "brothers-cider-orange-lemon-500ml.png"},
     {"name": "Brothers Pear & Apple", "detail": "", "price": 320, "unit": "Bottle", "new": false, "shelf": 7, "order": 2, "scale": 0.92, "image": "brothers-cider-pear-apple-500ml.png"},
     {"name": "Brothers Raspberry & Lime", "detail": "", "price": 320, "unit": "Bottle", "new": false, "shelf": 7, "order": 3, "scale": 0.92, "image": "brothers-cider-raspberry-lime-500ml.png"},
-    {"name": "Brothers Toffee Apple", "detail": "", "price": 320, "unit": "Bottle", "new": false, "shelf": 7, "order": 4, "scale": 0.92, "image": "brothers-cider-toffee-apple-500ml.png"}
+    {"name": "Brothers Toffee Apple", "detail": "", "price": 320, "unit": "Bottle", "new": false, "shelf": 7, "order": 4, "scale": 0.92, "image": "brothers-cider-toffee-apple-500ml.png"},
+    {"name": "Brothers Raspberry & Blackberry", "detail": "", "price": 320, "unit": "Bottle", "new": true, "shelf": 7, "order": 5, "scale": 0.92, "image": "brothers-cider-raspberry-blackberry-500ml.png"}
   ]
 }
