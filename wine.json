@@ -20,6 +20,7 @@
     {"name": "Montes Merlot", "detail": "", "price": 1200, "unit": "Bottle", "new": true, "shelf": [3, 4], "order": [2, 11], "scale": 1.0, "image": "montes-merlot.png"},
     {"name": "Two Oceans Cabernet Sauvignon Merlot", "detail": "", "price": 850, "unit": "Bottle", "new": true, "shelf": [3, 4], "order": [3, 12], "scale": 1.0, "image": "two-oceans-cabernet-sauvignon.png"},
     {"name": "Two Oceans Sauvignon Blanc", "detail": "", "price": 850, "unit": "Bottle", "new": true, "shelf": [3, 4], "order": [4, 13], "scale": 1.0, "image": "two-oceans-sauvignon-blanc.png"},
-    {"name": "Yellow Tail Shiraz", "detail": "", "price": 900, "unit": "Bottle", "new": true, "shelf": [3, 4], "order": [5, 14], "scale": 1.0, "image": "yellow-tail-shiraz.png"}
+    {"name": "Yellow Tail Shiraz", "detail": "", "price": 900, "unit": "Bottle", "new": true, "shelf": [3, 4], "order": [5, 14], "scale": 1.0, "image": "yellow-tail-shiraz.png"},
+    {"name": "Jacob's Creek Classic Chardonnay 750 ml", "detail": "Category : Wine\nType : White Wine\nBrand : Jacob's Creek\nGrape : Chardonnay\nCountry : Australia", "price": 850, "unit": "Bottle", "new": true, "shelf": 3, "order": 15, "scale": 1.0, "image": "jacobs-creek-classic-chardonnay-750ml.png"}
   ]
 }
