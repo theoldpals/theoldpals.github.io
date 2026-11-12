@@ -29,6 +29,8 @@
   // "shelfGroups": {"10": "Old World", "20": "New World"} puts a heading
   // above the first shelf numbered from 10 up to the next group's number.
   // "showNames": true prints each item's name under it on the shelf.
+  // "wrap": true lays items out in rows that fit the screen, so nothing
+  // scrolls sideways (used by the dessert page).
   // ---------------------------------------------------------------
   var bust = '?v=' + Math.floor(Date.now() / 60000); // refresh at most once a minute
   var file = document.body.getAttribute('data-menu');
@@ -66,6 +68,7 @@
     var shownGroup = null;
     var currency = data.currency === undefined ? '฿' : data.currency;
     if (data.showNames) cabinet.classList.add('show-names');
+    if (data.wrap) cabinet.classList.add('wrap');
     if (data.title) document.title = 'The Old Pals — ' + data.title;
 
     var items = (data.items || []).filter(function(it){ return it && !it.hidden; });

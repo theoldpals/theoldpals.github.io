@@ -160,3 +160,24 @@ footer{text-align:center;color:var(--muted);font-size:11px;letter-spacing:.18em;
   background:#e7e2d7;color:#111;font-size:20px;line-height:36px;cursor:pointer;
 }
 @media print{nav,.hint,footer{display:none}}
+
+/* "wrap": true — items flow into rows that fit the screen, no sideways scroll.
+   Each item carries its own piece of plank so a row reads as one shelf. */
+.wrap .row{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  column-gap:0;row-gap:54px;align-items:end;overflow:visible;padding:50px 10px 0;
+}
+.wrap .row>:first-child,.wrap .row>:last-child{margin:0}
+.wrap .shelf::after{display:none}
+.wrap .more{display:none!important}
+.wrap .item{justify-content:flex-end;width:100%}
+.wrap .item img{width:86%;height:auto!important;max-height:calc(var(--bottle-h) * .62);object-fit:contain}
+.wrap .tag{
+  align-self:stretch;max-width:none;margin-top:-4px;
+  background:linear-gradient(#a06c40,#8a5a33);border-top:2px solid #b98250;
+}
+.wrap .label{
+  align-self:stretch;width:auto;margin-top:0;padding:0 6px;height:38px;
+  background:linear-gradient(#8a5a33,#6b4325);box-shadow:0 8px 10px -2px rgba(0,0,0,.6);
+}
+.wrap .star{top:-46px}
