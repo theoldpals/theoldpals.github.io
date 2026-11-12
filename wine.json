@@ -3,7 +3,6 @@
   "currency": "฿",
   "imageFolder": "wine_images/",
   "shelfNames": {"1": "Promotion", "2": "Recommend", "3": "New arrivals", "10": "France", "11": "Italy", "20": "Australia", "21": "Chile", "22": "South Africa", "23": "USA", "30": "Wine small"},
-  "shelfGroups": {"10": "Old World", "20": "New World", "30": ""},
   "items": [
     {"name": "Jacob's Creek Shiraz Cabernet 375 ml", "detail": "Jacob's Creek Shiraz Cabernet Sauvignon 375 ml เป็นไวน์แดงออสเตรเลียยอดนิยมที่ดื่มง่าย โดดเด่นด้วยรสสัมผัสของผลไม้ตระกูลเบอร์รี่ พลัม และเครื่องเทศ\n\n🍷 ข้อมูลจำเพาะของไวน์\nพันธุ์องุ่น: ชิราซ (Shiraz) และ คาเบอร์เนต์ โซวีญง (Cabernet Sauvignon)\nแอลกอฮอล์: 13.9% - 14.0%\nสไตล์: ไวน์แดงรสชาติปานกลาง (Medium Bodied)\nกลิ่นและรสชาติ: หอมกลิ่นเบอร์รี่ผสมผสานกับความเผ็ดร้อนของเครื่องเทศและกลิ่นอายของโอ๊ค\nการจับคู่อาหาร: เหมาะอย่างยิ่งกับการทานคู่กับเนื้อย่าง สเต็ก หรือบาร์บีคิว", "price": 580, "unit": "Bottle", "type": "Red", "country": "Australia", "taste": null, "vivino": null, "new": false, "shelf": 30, "order": 1, "scale": 0.8, "image": "jacobs-creek-shiraz-cabernet-375ml.png"},
     {"name": "Angove Long Row Cabernet Sauvignon 187 ml", "detail": "", "price": 250, "unit": "Bottle", "type": "Red", "country": "Australia", "taste": null, "vivino": null, "new": false, "shelf": 30, "order": 2, "scale": 0.65, "image": "angove-long-row-187ml-cabernet-sauvignon.png"},
