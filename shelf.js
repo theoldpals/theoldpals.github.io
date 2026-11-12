@@ -28,6 +28,7 @@
   // "shelfNames": {"1": "Thai & Lao", ...} puts a small sign on a shelf.
   // "shelfGroups": {"10": "Old World", "20": "New World"} puts a heading
   // above the first shelf numbered from 10 up to the next group's number.
+  // "showNames": true prints each item's name under it on the shelf.
   // ---------------------------------------------------------------
   var bust = '?v=' + Math.floor(Date.now() / 60000); // refresh at most once a minute
   var file = document.body.getAttribute('data-menu');
@@ -64,6 +65,7 @@
     var groups = Object.keys(data.shelfGroups || {}).map(Number).sort(function(a, b){ return a - b; });
     var shownGroup = null;
     var currency = data.currency === undefined ? '฿' : data.currency;
+    if (data.showNames) cabinet.classList.add('show-names');
     if (data.title) document.title = 'The Old Pals — ' + data.title;
 
     var items = (data.items || []).filter(function(it){ return it && !it.hidden; });
@@ -141,6 +143,12 @@
         tag.className = 'tag';
         tag.textContent = price || it.name || '';
         btn.appendChild(tag);
+        if (data.showNames && it.name){
+          var label = document.createElement('span');
+          label.className = 'label';
+          label.textContent = it.name;
+          btn.appendChild(label);
+        }
         btn.addEventListener('click', function(){ openCard(it, src, price); });
         row.appendChild(btn);
       });
