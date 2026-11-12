@@ -2,6 +2,7 @@
   "title": "Beer",
   "currency": "฿",
   "imageFolder": "beer_images/",
+  "showNames": true,
   "shelfNames": {"1": "Thai", "2": "Japanese", "3": "International lagers", "4": "IPA", "5": "European", "6": "Hoegaarden", "7": "Cider"},
   "items": [
     {"name": "Singha Large", "detail": "", "price": 140, "unit": "Bottle", "new": false, "shelf": 1, "order": 1, "scale": 1.0, "image": "singha-large.png"},
