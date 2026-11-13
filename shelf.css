@@ -134,7 +134,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;letter-spacing:.18em;
   width:100%;max-width:420px;max-height:90vh;overflow:auto;
   padding:22px 20px 24px;text-align:center;
 }
-.sheet img{height:min(46vh,320px);width:auto;max-width:100%;filter:drop-shadow(0 6px 6px rgba(0,0,0,.35))}
+.sheet img{height:auto;max-height:min(46vh,320px);width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 6px 6px rgba(0,0,0,.35))}
 .sheet h2{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:24px;margin:12px 0 4px}
 .sheet .new{display:inline-block;background:var(--ink);color:var(--gold);font-size:10px;letter-spacing:.2em;padding:4px 8px;border-radius:3px;margin-bottom:6px}
 .sheet p{color:var(--muted);font-size:14px;line-height:1.6;margin:6px 0 12px;white-space:pre-line;text-align:left}
