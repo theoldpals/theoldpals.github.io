@@ -171,7 +171,7 @@ footer{text-align:center;color:var(--muted);font-size:11px;letter-spacing:.18em;
 .wrap .shelf::after{display:none}
 .wrap .more{display:none!important}
 .wrap .item{justify-content:flex-end;width:100%}
-.wrap .item img{width:86%;height:auto!important;max-height:calc(var(--bottle-h) * .62);object-fit:contain}
+.wrap .item img{width:92%;height:auto!important;max-height:240px;object-fit:contain}
 .wrap .tag{
   align-self:stretch;max-width:none;margin-top:-4px;
   background:linear-gradient(#a06c40,#8a5a33);border-top:2px solid #b98250;
@@ -181,3 +181,10 @@ footer{text-align:center;color:var(--muted);font-size:11px;letter-spacing:.18em;
   background:linear-gradient(#8a5a33,#6b4325);box-shadow:0 8px 10px -2px rgba(0,0,0,.6);
 }
 .wrap .star{top:-46px}
+
+/* Bigger, clearer price and name on the dessert rows */
+.wrap .tag{font-size:21px;font-weight:700;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.55);padding-top:6px;height:auto}
+.wrap .label{font-size:16px;font-weight:600;line-height:1.25;color:#fff;
+  text-shadow:0 1px 2px rgba(0,0,0,.6);height:auto;min-height:62px;padding:2px 8px 10px;
+  white-space:normal;overflow:visible;display:flex;align-items:flex-start;justify-content:center}
+@media (min-width:600px){.wrap .item img{max-height:200px}}
