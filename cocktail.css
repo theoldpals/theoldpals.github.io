@@ -1,0 +1,50 @@
+/* Cocktail page. Header, tabs and the tap card come from shelf.css;
+   this adds the dark bar-top grid of photo cards. */
+.bar{
+  margin:0 -4px;
+  background:#15100c url('shelf_images/wood.jpg') center top/600px auto repeat;
+  border:12px solid var(--plank-edge);border-radius:6px;
+  box-shadow:inset 0 0 0 2000px rgba(12,8,5,.72), 0 6px 18px rgba(0,0,0,.25);
+  padding:8px 10px 18px;
+}
+.bar .state{color:#e9dccb}
+.bar .group{margin:18px 0 14px}
+.bar .group small{display:block;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;font-weight:500;color:#c9b48c;margin-top:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(136px,1fr));gap:10px}
+.drink-btn{
+  position:relative;display:flex;flex-direction:column;
+  background:#211710;border:1px solid rgba(232,200,119,.28);border-radius:6px;overflow:hidden;
+  padding:0;margin:0;cursor:pointer;font:inherit;color:#fff;text-align:left;
+  box-shadow:0 4px 10px rgba(0,0,0,.45);transition:transform .15s ease,border-color .15s ease;
+}
+.drink-btn:hover,.drink-btn:focus-visible{transform:translateY(-3px);border-color:var(--gold)}
+.drink-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.drink-btn img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;background:#2a1d14}
+.drink-btn .info{padding:9px 10px 11px;display:flex;flex-direction:column;gap:2px;flex:1}
+.drink-btn .nm{font-size:15px;font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:16px;line-height:1.2}
+.drink-btn .nm-th{font-size:12px;color:#c9b48c;min-height:15px}
+.drink-btn .pr{margin-top:auto;padding-top:6px;font-size:18px;font-weight:600;color:var(--gold)}
+.drink-btn .star{top:8px;left:auto;right:8px;transform:none;font-size:16px;animation:none;
+  background:rgba(0,0,0,.6);border-radius:4px;padding:3px 5px}
+.drink-btn .zero{position:absolute;top:8px;left:8px;font-size:9px;letter-spacing:.14em;font-weight:600;
+  background:#e8c877;color:#3a2610;padding:3px 6px;border-radius:3px}
+
+/* Tap card */
+.sheet.drink{max-width:460px}
+.sheet.drink img{width:100%;max-height:none;border-radius:6px;filter:none;cursor:zoom-in}
+.sheet.drink img.full{cursor:zoom-out}
+.sheet.drink h2{margin-bottom:0}
+.sheet.drink .th{color:var(--muted);font-size:14px;margin:2px 0 8px}
+.sheet.drink .th:empty{display:none}
+.recipe{text-align:left;margin:8px 0 14px;font-size:14px}
+.recipe h3{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:14px 0 6px}
+.recipe ul{list-style:none;margin:0;padding:0;border-top:1px solid #e2dccf}
+.recipe li{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid #e2dccf}
+.recipe li span:last-child{color:var(--muted);white-space:nowrap}
+.recipe li small{color:var(--muted);margin-left:6px}
+.recipe .chips{display:flex;flex-wrap:wrap;gap:6px}
+.recipe .chips span{background:#e7e2d7;border-radius:999px;padding:4px 10px;font-size:12px}
+.recipe .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.recipe .row2 div{background:#ebe6db;border-radius:6px;padding:8px 10px;font-size:13px}
+.recipe .row2 b{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:2px}
+.recipe .tag-th{display:block;color:var(--muted);font-size:12px;margin-top:6px}

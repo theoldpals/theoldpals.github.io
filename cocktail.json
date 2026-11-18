@@ -1,0 +1,507 @@
+{
+ "title": "Cocktails",
+ "currency": "฿",
+ "imageFolder": "cocktail_images/",
+ "thumbFolder": "cocktail_images/thumb/",
+ "sections": [
+  {
+   "id": "signature",
+   "name": "Signature",
+   "name_th": "ซิกเนเจอร์"
+  },
+  {
+   "id": "classic",
+   "name": "Classic Cocktails",
+   "name_th": "ค็อกเทลคลาสสิก"
+  },
+  {
+   "id": "spirits",
+   "name": "Shots & Spirits",
+   "name_th": "ช็อต & สปิริต"
+  },
+  {
+   "id": "mocktail",
+   "name": "Mocktail",
+   "name_th": "ไม่มีแอลกอฮอล์"
+  }
+ ],
+ "items": [
+  {
+   "name": "Absinthe Traditional Serve",
+   "name_th": "",
+   "section": "spirits",
+   "order": 2,
+   "price": 390,
+   "unit": "Glass",
+   "new": false,
+   "image": "absinthe-traditional-serve.jpg"
+  },
+  {
+   "name": "Angostura Orange Bitter 28%",
+   "name_th": "",
+   "section": "spirits",
+   "order": 9,
+   "price": 0,
+   "unit": "Glass",
+   "new": false,
+   "image": "angostura-orange-bitter-28.jpg",
+   "hidden": true
+  },
+  {
+   "name": "Bee’s Knees",
+   "name_th": "บีส์ นีส์",
+   "section": "classic",
+   "order": 2,
+   "price": 220,
+   "unit": "Glass",
+   "new": false,
+   "image": "bees-knees.jpg",
+   "ingredients": [
+    {
+     "en": "Gin",
+     "th": "จิน",
+     "ml": 45
+    },
+    {
+     "en": "Fresh Lemon Juice",
+     "th": "น้ำเลมอนสด",
+     "ml": 20
+    },
+    {
+     "en": "Honey Syrup",
+     "th": "ไซรัปน้ำผึ้ง",
+     "ml": 15
+    }
+   ],
+   "taste": "Floral • Citrusy • Smooth • Lightly Sweet",
+   "glass": "Coupe Glass",
+   "garnish": "Lemon Twist & Thyme (optional)"
+  },
+  {
+   "name": "Cosmopolitan",
+   "name_th": "",
+   "section": "classic",
+   "order": 8,
+   "price": 250,
+   "unit": "Glass",
+   "new": false,
+   "image": "cosmopolitan.jpg"
+  },
+  {
+   "name": "Cuba Libre",
+   "name_th": "",
+   "section": "classic",
+   "order": 14,
+   "price": 220,
+   "unit": "Glass",
+   "new": false,
+   "image": "cuba-libre.jpg"
+  },
+  {
+   "name": "Daiquiri",
+   "name_th": "ไดคีรี",
+   "section": "classic",
+   "order": 4,
+   "price": 220,
+   "unit": "Glass",
+   "new": false,
+   "image": "daiquiri.jpg",
+   "ingredients": [
+    {
+     "en": "White Rum",
+     "th": "รัมขาว",
+     "ml": 60
+    },
+    {
+     "en": "Fresh Lime Juice",
+     "th": "น้ำมะนาวสด",
+     "ml": 25
+    },
+    {
+     "en": "Simple Syrup",
+     "th": "ไซรัปน้ำตาล",
+     "ml": 15
+    }
+   ],
+   "taste": "Citrusy • Bright • Balanced • Refreshing",
+   "glass": "Coupe Glass",
+   "garnish": "Lime Wheel"
+  },
+  {
+   "name": "Espresso Martini",
+   "name_th": "",
+   "section": "classic",
+   "order": 11,
+   "price": 290,
+   "unit": "Glass",
+   "new": false,
+   "image": "espresso-martini.jpg"
+  },
+  {
+   "name": "Gin Fizz",
+   "name_th": "จิน ฟิซ",
+   "section": "classic",
+   "order": 3,
+   "price": 220,
+   "unit": "Glass",
+   "new": false,
+   "image": "gin-fizz.jpg",
+   "description": "A light and refreshing classic cocktail that combines the herbal character of gin with bright lemon and a sparkling finish. Crisp, refreshing, and easy to enjoy.",
+   "ingredients": [
+    {
+     "en": "Gin",
+     "th": "จิน",
+     "ml": null
+    },
+    {
+     "en": "Fresh Lemon Juice",
+     "th": "น้ำเลมอนสด",
+     "ml": null
+    },
+    {
+     "en": "Simple Syrup",
+     "th": "ไซรัปน้ำตาล",
+     "ml": null
+    },
+    {
+     "en": "Soda Water",
+     "th": "โซดา",
+     "ml": null
+    }
+   ],
+   "taste": "Bright • Crisp • Sparkling • Light",
+   "taste_th": "สดชื่น • สะอาด • ซ่าเบาๆ • ดื่มง่าย",
+   "glass": "Collins Glass",
+   "garnish": "Lemon Wheel & Mint",
+   "pos_name": "GIN Fizz"
+  },
+  {
+   "name": "Gin Comb",
+   "name_th": "จิน คอมบ์",
+   "section": "classic",
+   "order": 1,
+   "price": 250,
+   "unit": "Glass",
+   "new": false,
+   "image": "gin-comb.jpg",
+   "ingredients": [
+    {
+     "en": "Gin",
+     "th": "จิน",
+     "ml": 45
+    },
+    {
+     "en": "Honey Syrup",
+     "th": "ไซรัปน้ำผึ้ง",
+     "ml": 20
+    },
+    {
+     "en": "Lemon Juice",
+     "th": "น้ำมะนาว",
+     "ml": 20
+    }
+   ],
+   "taste": "Aromatic • Honeyed • Citrusy • Refreshing",
+   "taste_th": "หอมสมุนไพร หวานน้ำผึ้ง สดชื่นมีซิตรัส"
+  },
+  {
+   "name": "Long Island",
+   "name_th": "",
+   "section": "classic",
+   "order": 13,
+   "price": 250,
+   "unit": "Glass",
+   "new": false,
+   "image": "long-island.jpg"
+  },
+  {
+   "name": "Margarita",
+   "name_th": "มาร์การิต้า",
+   "section": "classic",
+   "order": 6,
+   "price": 250,
+   "unit": "Glass",
+   "new": false,
+   "image": "margarita.jpg",
+   "ingredients": [
+    {
+     "en": "Tequila",
+     "th": "เตกีล่า",
+     "ml": 50
+    },
+    {
+     "en": "Triple Sec",
+     "th": "ทริปเปิ้ลเซค",
+     "ml": 25
+    },
+    {
+     "en": "Fresh Lime Juice",
+     "th": "น้ำมะนาวสด",
+     "ml": 25
+    }
+   ],
+   "taste": "Citrusy • Tangy • Refreshing • Slightly Sweet",
+   "glass": "Margarita Glass",
+   "garnish": "Lime & Salt Rim",
+   "pos_name": "Margarita (มาร์การิต้า)"
+  },
+  {
+   "name": "Mojito Virgin",
+   "name_th": "",
+   "section": "mocktail",
+   "order": 1,
+   "price": 150,
+   "unit": "Glass",
+   "new": false,
+   "image": "mojito-virgin.jpg",
+   "non_alcoholic": true
+  },
+  {
+   "name": "Mojito Rum",
+   "name_th": "โมฮิโต้ รัม",
+   "section": "classic",
+   "order": 5,
+   "price": 220,
+   "unit": "Glass",
+   "new": false,
+   "image": "mojito-rum.jpg",
+   "description": "A classic Cuban cocktail with white rum, fresh lime, mint, and a touch of sweetness, topped with soda. Light, crisp, and refreshing.",
+   "ingredients": [
+    {
+     "en": "White Rum",
+     "th": "รัมขาว",
+     "ml": null
+    },
+    {
+     "en": "Fresh Lime",
+     "th": "มะนาวสด",
+     "ml": null
+    },
+    {
+     "en": "Mint",
+     "th": "ใบสะระแหน่",
+     "ml": null
+    },
+    {
+     "en": "Sugar",
+     "th": "น้ำตาล",
+     "ml": null
+    },
+    {
+     "en": "Soda Water",
+     "th": "โซดา",
+     "ml": null
+    }
+   ],
+   "taste": "Refreshing • Citrusy • Herbal • Well-Balanced • Sparkling",
+   "taste_th": "สดชื่น • กลิ่นซิตรัส • หอมสมุนไพร • กลมกล่อม • ซ่าเบาๆ",
+   "glass": "Highball Glass",
+   "garnish": "Lime Wheel & Mint",
+   "pos_name": "Mojito rum"
+  },
+  {
+   "name": "Old Pals",
+   "name_th": "",
+   "section": "signature",
+   "order": 1,
+   "price": 550,
+   "unit": "Glass",
+   "new": false,
+   "image": "old-pals.jpg"
+  },
+  {
+   "name": "Pink Lady",
+   "name_th": "",
+   "section": "classic",
+   "order": 12,
+   "price": 250,
+   "unit": "Glass",
+   "new": false,
+   "image": "pink-lady.jpg"
+  },
+  {
+   "name": "Regency On the rock (no mixer)",
+   "name_th": "",
+   "section": "spirits",
+   "order": 3,
+   "price": 85,
+   "unit": "Glass",
+   "new": false,
+   "image": "regency-on-the-rock-no-mixer.jpg"
+  },
+  {
+   "name": "Screwdriver",
+   "name_th": "",
+   "section": "classic",
+   "order": 15,
+   "price": 220,
+   "unit": "Glass",
+   "new": false,
+   "image": "screwdriver.jpg"
+  },
+  {
+   "name": "Shot Spirit",
+   "name_th": "",
+   "section": "spirits",
+   "order": 1,
+   "price": 160,
+   "unit": "Shot",
+   "new": false,
+   "image": "shot-spirit.jpg",
+   "options": [
+    {
+     "en": "Whiskey",
+     "th": "วิสกี้",
+     "abv": "40–45%"
+    },
+    {
+     "en": "Vodka",
+     "th": "วอดก้า",
+     "abv": "40%"
+    },
+    {
+     "en": "Gin",
+     "th": "จิน",
+     "abv": "37.5–47%"
+    },
+    {
+     "en": "Rum",
+     "th": "รัม",
+     "abv": "37.5–40%"
+    },
+    {
+     "en": "Tequila",
+     "th": "เตกีลา",
+     "abv": "35–40%"
+    }
+   ]
+  },
+  {
+   "name": "Sky Kamikaze",
+   "name_th": "สกาย คามิคาเซ่",
+   "section": "classic",
+   "order": 7,
+   "price": 250,
+   "unit": "Glass",
+   "new": false,
+   "image": "sky-kamikaze.jpg",
+   "ingredients": [
+    {
+     "en": "Vodka",
+     "th": "วอดก้า",
+     "ml": 45
+    },
+    {
+     "en": "Triple Sec",
+     "th": "ทริปเปิ้ลเซค",
+     "ml": 15
+    },
+    {
+     "en": "Fresh Lime Juice",
+     "th": "น้ำมะนาวสด",
+     "ml": 20
+    },
+    {
+     "en": "Blue Curaçao",
+     "th": "บลู คูราเซา",
+     "ml": 15
+    }
+   ],
+   "taste": "Citrusy • Vibrant • Refreshing • Slightly Sweet",
+   "glass": "Martini Glass",
+   "garnish": "Lime Wheel"
+  },
+  {
+   "name": "The Old Pals (Gin)",
+   "name_th": "",
+   "section": "signature",
+   "order": 2,
+   "price": 350,
+   "unit": "Glass",
+   "new": false,
+   "image": "the-old-pals-gin.jpg",
+   "tagline": "A Classic 3-Ingredient Cocktail",
+   "ingredients": [
+    {
+     "en": "Gin",
+     "th": "จิน",
+     "ml": 30
+    },
+    {
+     "en": "Dry Vermouth",
+     "th": "ดราย เวอร์มุธ",
+     "ml": 30
+    },
+    {
+     "en": "Campari",
+     "th": "คัมพารี",
+     "ml": 30
+    }
+   ]
+  },
+  {
+   "name": "Whiskey Sour",
+   "name_th": "วิสกี้ ซาวร์",
+   "section": "classic",
+   "order": 9,
+   "price": 250,
+   "unit": "Glass",
+   "new": false,
+   "image": "whiskey-sour.jpg",
+   "ingredients": [
+    {
+     "en": "Whiskey",
+     "th": "วิสกี้",
+     "ml": 60
+    },
+    {
+     "en": "Fresh Lemon Juice",
+     "th": "น้ำเลมอนสด",
+     "ml": 30
+    },
+    {
+     "en": "Simple Syrup",
+     "th": "ไซรัปน้ำตาล",
+     "ml": 20
+    },
+    {
+     "en": "Egg White (optional)",
+     "th": "ไข่ขาว (ตามแบบคลาสสิก)",
+     "ml": 15
+    }
+   ],
+   "taste": "Balanced • Tangy • Smooth • Refreshing",
+   "glass": "Old Fashioned Glass",
+   "garnish": "Lemon Slice (Optional: Angostura Bitters)"
+  },
+  {
+   "name": "White Russian",
+   "name_th": "ไวท์ รัสเซียน",
+   "section": "classic",
+   "order": 10,
+   "price": 290,
+   "unit": "Glass",
+   "new": false,
+   "image": "white-russian.jpg",
+   "ingredients": [
+    {
+     "en": "Vodka",
+     "th": "วอดก้า",
+     "ml": 45
+    },
+    {
+     "en": "Coffee Liqueur",
+     "th": "คอฟฟี่ ลิเคียวร์",
+     "ml": 30
+    },
+    {
+     "en": "Fresh Cream",
+     "th": "ครีมสด",
+     "ml": 30
+    }
+   ],
+   "taste": "Rich • Creamy • Coffee • Smooth",
+   "taste_th": "เข้ม หอมกาแฟ นุ่มละมุน"
+  }
+ ]
+}
