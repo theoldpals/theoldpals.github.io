@@ -61,7 +61,8 @@
    ],
    "taste": "Floral • Citrusy • Smooth • Lightly Sweet",
    "glass": "Coupe Glass",
-   "garnish": "Lemon Twist & Thyme (optional)"
+   "garnish": "Lemon Twist & Thyme (optional)",
+   "poster": "bees-knees.jpg"
   },
   {
    "name": "Cosmopolitan",
@@ -79,7 +80,8 @@
    "price": 220,
    "unit": "Glass",
    "new": false,
-   "image": "cuba-libre.jpg"
+   "image": "cuba-libre.jpg",
+   "poster": "cuba-libre.jpg"
   },
   {
    "name": "Daiquiri",
@@ -105,7 +107,8 @@
    ],
    "taste": "Citrusy • Bright • Balanced • Refreshing",
    "glass": "Coupe Glass",
-   "garnish": "Lime Wheel"
+   "garnish": "Lime Wheel",
+   "poster": "daiquiri.jpg"
   },
   {
    "name": "Espresso Martini",
@@ -114,7 +117,8 @@
    "price": 290,
    "unit": "Glass",
    "new": false,
-   "image": "espresso-martini.jpg"
+   "image": "espresso-martini.jpg",
+   "poster": "espresso-martini.jpg"
   },
   {
    "name": "Gin Fizz",
@@ -146,7 +150,8 @@
    "taste": "Bright • Crisp • Sparkling • Light",
    "glass": "Collins Glass",
    "garnish": "Lemon Wheel & Mint",
-   "pos_name": "GIN Fizz"
+   "pos_name": "GIN Fizz",
+   "poster": "gin-fizz.jpg"
   },
   {
    "name": "Gin Comb",
@@ -170,7 +175,8 @@
      "ml": 20
     }
    ],
-   "taste": "Aromatic • Honeyed • Citrusy • Refreshing"
+   "taste": "Aromatic • Honeyed • Citrusy • Refreshing",
+   "poster": "gin-comb.jpg"
   },
   {
    "name": "Long Island",
@@ -179,7 +185,8 @@
    "price": 250,
    "unit": "Glass",
    "new": false,
-   "image": "long-island.jpg"
+   "image": "long-island.jpg",
+   "poster": "long-island.jpg"
   },
   {
    "name": "Margarita",
@@ -206,7 +213,8 @@
    "taste": "Citrusy • Tangy • Refreshing • Slightly Sweet",
    "glass": "Margarita Glass",
    "garnish": "Lime & Salt Rim",
-   "pos_name": "Margarita (มาร์การิต้า)"
+   "pos_name": "Margarita (มาร์การิต้า)",
+   "poster": "margarita.jpg"
   },
   {
    "name": "Mojito Virgin",
@@ -216,7 +224,8 @@
    "unit": "Glass",
    "new": false,
    "image": "mojito-virgin.jpg",
-   "non_alcoholic": true
+   "non_alcoholic": true,
+   "poster": "mojito-virgin.jpg"
   },
   {
    "name": "Mojito Rum",
@@ -252,7 +261,8 @@
    "taste": "Refreshing • Citrusy • Herbal • Well-Balanced • Sparkling",
    "glass": "Highball Glass",
    "garnish": "Lime Wheel & Mint",
-   "pos_name": "Mojito rum"
+   "pos_name": "Mojito rum",
+   "poster": "mojito-rum.jpg"
   },
   {
    "name": "Old Pals",
@@ -262,7 +272,8 @@
    "unit": "Glass",
    "new": false,
    "image": "old-pals.jpg",
-   "hidden": true
+   "hidden": true,
+   "poster": "old-pals.jpg"
   },
   {
    "name": "Pink Lady",
@@ -271,7 +282,8 @@
    "price": 250,
    "unit": "Glass",
    "new": false,
-   "image": "pink-lady.jpg"
+   "image": "pink-lady.jpg",
+   "poster": "pink-lady.jpg"
   },
   {
    "name": "Regency On the rock (no mixer)",
@@ -280,7 +292,8 @@
    "price": 85,
    "unit": "Glass",
    "new": false,
-   "image": "regency-on-the-rock-no-mixer.jpg"
+   "image": "regency-on-the-rock-no-mixer.jpg",
+   "poster": "regency-on-the-rock-no-mixer.jpg"
   },
   {
    "name": "Screwdriver",
@@ -289,7 +302,8 @@
    "price": 220,
    "unit": "Glass",
    "new": false,
-   "image": "screwdriver.jpg"
+   "image": "screwdriver.jpg",
+   "poster": "screwdriver.jpg"
   },
   {
    "name": "Shot Spirit",
@@ -320,7 +334,8 @@
      "en": "Tequila",
      "abv": "35–40%"
     }
-   ]
+   ],
+   "poster": "shot-spirit.jpg"
   },
   {
    "name": "Sky Kamikaze",
@@ -350,7 +365,8 @@
    ],
    "taste": "Citrusy • Vibrant • Refreshing • Slightly Sweet",
    "glass": "Martini Glass",
-   "garnish": "Lime Wheel"
+   "garnish": "Lime Wheel",
+   "poster": "sky-kamikaze.jpg"
   },
   {
    "name": "The Old Pals (Gin)",
@@ -375,7 +391,8 @@
      "ml": 30
     }
    ],
-   "hidden": true
+   "hidden": true,
+   "poster": "the-old-pals-gin.jpg"
   },
   {
    "name": "Whiskey Sour",
@@ -405,7 +422,8 @@
    ],
    "taste": "Balanced • Tangy • Smooth • Refreshing",
    "glass": "Old Fashioned Glass",
-   "garnish": "Lemon Slice (Optional: Angostura Bitters)"
+   "garnish": "Lemon Slice (Optional: Angostura Bitters)",
+   "poster": "whiskey-sour.jpg"
   },
   {
    "name": "White Russian",
@@ -429,7 +447,9 @@
      "ml": 30
     }
    ],
-   "taste": "Rich • Creamy • Coffee • Smooth"
+   "taste": "Rich • Creamy • Coffee • Smooth",
+   "poster": "white-russian.jpg"
   }
- ]
+ ],
+ "posterFolder": "cocktail_images/poster/"
 }

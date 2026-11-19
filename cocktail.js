@@ -10,7 +10,10 @@
   //   order        1 = first in its section, then 2, 3 ...
   //   price        number, or text like "฿160–250"
   //   unit         "Glass", "Shot" ... shown next to the price
-  //   image        file name inside imageFolder (and thumbFolder)
+  //   image        clean photo (drink only, no text) shown in the grid,
+  //                file name inside imageFolder (and thumbFolder)
+  //   poster       info poster shown in the pop-up when tapped, file name
+  //                inside posterFolder (optional; falls back to image)
   //   new          true puts a gold star on the card
   //   hidden       true hides the drink without deleting it
   //   description  paragraph on the tap card (optional)
@@ -43,6 +46,7 @@
   function render(data){
     var folder = data.imageFolder || '';
     var thumbs = data.thumbFolder || folder;
+    var posters = data.posterFolder || folder;
     var currency = data.currency === undefined ? '฿' : data.currency;
     if (data.title) document.title = 'The Old Pals — ' + data.title;
     var items = (data.items || []).filter(function(it){ return it && !it.hidden; });
@@ -68,7 +72,7 @@
       var grid = el('div', 'grid');
       list.forEach(function(it){
         var price = priceText(it.price, currency);
-        var full = folder + it.image + bust;
+        var full = it.poster ? posters + it.poster + bust : folder + it.image + bust;
         var btn = el('button', 'drink-btn');
         btn.type = 'button';
         btn.setAttribute('aria-label', it.name + (price ? ', ' + price : '') + (it.new ? ', new' : ''));
