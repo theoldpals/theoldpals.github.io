@@ -25,7 +25,8 @@
    "price": 390,
    "unit": "Glass",
    "new": false,
-   "image": "absinthe-traditional-serve.jpg"
+   "image": "absinthe-traditional-serve.jpg",
+   "poster": "absinthe-traditional-serve.jpg"
   },
   {
    "name": "Angostura Orange Bitter 28%",
@@ -71,7 +72,8 @@
    "price": 250,
    "unit": "Glass",
    "new": false,
-   "image": "cosmopolitan.jpg"
+   "image": "cosmopolitan.jpg",
+   "poster": "cosmopolitan.jpg"
   },
   {
    "name": "Cuba Libre",
