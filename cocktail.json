@@ -40,7 +40,7 @@
   {
    "name": "Bee’s Knees",
    "section": "classic",
-   "order": 4,
+   "order": 2,
    "price": 220,
    "unit": "Glass",
    "new": false,
@@ -66,7 +66,7 @@
   {
    "name": "Cosmopolitan",
    "section": "classic",
-   "order": 10,
+   "order": 8,
    "price": 250,
    "unit": "Glass",
    "new": false,
@@ -75,7 +75,7 @@
   {
    "name": "Cuba Libre",
    "section": "classic",
-   "order": 16,
+   "order": 14,
    "price": 220,
    "unit": "Glass",
    "new": false,
@@ -84,7 +84,7 @@
   {
    "name": "Daiquiri",
    "section": "classic",
-   "order": 6,
+   "order": 4,
    "price": 220,
    "unit": "Glass",
    "new": false,
@@ -110,7 +110,7 @@
   {
    "name": "Espresso Martini",
    "section": "classic",
-   "order": 13,
+   "order": 11,
    "price": 290,
    "unit": "Glass",
    "new": false,
@@ -119,7 +119,7 @@
   {
    "name": "Gin Fizz",
    "section": "classic",
-   "order": 5,
+   "order": 3,
    "price": 220,
    "unit": "Glass",
    "new": false,
@@ -151,7 +151,7 @@
   {
    "name": "Gin Comb",
    "section": "classic",
-   "order": 3,
+   "order": 1,
    "price": 250,
    "unit": "Glass",
    "new": false,
@@ -175,7 +175,7 @@
   {
    "name": "Long Island",
    "section": "classic",
-   "order": 15,
+   "order": 13,
    "price": 250,
    "unit": "Glass",
    "new": false,
@@ -184,7 +184,7 @@
   {
    "name": "Margarita",
    "section": "classic",
-   "order": 8,
+   "order": 6,
    "price": 250,
    "unit": "Glass",
    "new": false,
@@ -221,7 +221,7 @@
   {
    "name": "Mojito Rum",
    "section": "classic",
-   "order": 7,
+   "order": 5,
    "price": 220,
    "unit": "Glass",
    "new": false,
@@ -261,12 +261,13 @@
    "price": 550,
    "unit": "Glass",
    "new": false,
-   "image": "old-pals.jpg"
+   "image": "old-pals.jpg",
+   "hidden": true
   },
   {
    "name": "Pink Lady",
    "section": "classic",
-   "order": 14,
+   "order": 12,
    "price": 250,
    "unit": "Glass",
    "new": false,
@@ -284,7 +285,7 @@
   {
    "name": "Screwdriver",
    "section": "classic",
-   "order": 17,
+   "order": 15,
    "price": 220,
    "unit": "Glass",
    "new": false,
@@ -324,7 +325,7 @@
   {
    "name": "Sky Kamikaze",
    "section": "classic",
-   "order": 9,
+   "order": 7,
    "price": 250,
    "unit": "Glass",
    "new": false,
@@ -373,12 +374,13 @@
      "en": "Campari",
      "ml": 30
     }
-   ]
+   ],
+   "hidden": true
   },
   {
    "name": "Whiskey Sour",
    "section": "classic",
-   "order": 11,
+   "order": 9,
    "price": 250,
    "unit": "Glass",
    "new": false,
@@ -408,7 +410,7 @@
   {
    "name": "White Russian",
    "section": "classic",
-   "order": 12,
+   "order": 10,
    "price": 290,
    "unit": "Glass",
    "new": false,
