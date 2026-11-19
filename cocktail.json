@@ -288,14 +288,15 @@
    "poster": "pink-lady.jpg"
   },
   {
-   "name": "Regency On the rock (no mixer)",
+   "name": "Regency On the Rock",
    "section": "spirits",
    "order": 3,
    "price": 85,
    "unit": "Glass",
    "new": false,
    "image": "regency-on-the-rock-no-mixer.jpg",
-   "poster": "regency-on-the-rock-no-mixer.jpg"
+   "poster": "regency-on-the-rock-no-mixer.jpg",
+   "pos_name": "Regency On the rock (no mixer)"
   },
   {
    "name": "Screwdriver",
