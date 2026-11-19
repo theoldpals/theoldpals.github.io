@@ -6,8 +6,7 @@
   // No code changes needed.
   //
   //   name         English name (big on the card)
-  //   name_th      Thai name (optional)
-  //   section      id from "sections" — signature, classic, spirits, mocktail
+  //   section      id from "sections" — classic, spirits, mocktail
   //   order        1 = first in its section, then 2, 3 ...
   //   price        number, or text like "฿160–250"
   //   unit         "Glass", "Shot" ... shown next to the price
@@ -15,10 +14,10 @@
   //   new          true puts a gold star on the card
   //   hidden       true hides the drink without deleting it
   //   description  paragraph on the tap card (optional)
-  //   ingredients  [{"en": "Gin", "th": "จิน", "ml": 45}, ...] (optional;
+  //   ingredients  [{"en": "Gin", "ml": 45}, ...] (optional;
   //                ml can be null when there is no measure)
-  //   options      [{"en": "Whiskey", "th": "วิสกี้", "abv": "40%"}] (shots)
-  //   taste        "Citrusy • Bright • Balanced" (optional), taste_th in Thai
+  //   options      [{"en": "Whiskey", "abv": "40%"}] (shots)
+  //   taste        "Citrusy • Bright • Balanced" (optional)
   //   glass, garnish, tagline   (optional)
   //   non_alcoholic  true shows a "0% ALC" badge
   //   pos_name     the name in Silom POS, for reference only (not shown)
@@ -64,7 +63,6 @@
       if (!list.length) return;
       if (s.name){
         var h = el('h2', 'group', s.name);
-        if (s.name_th) h.appendChild(el('small', '', s.name_th));
         bar.appendChild(h);
       }
       var grid = el('div', 'grid');
@@ -90,7 +88,6 @@
         if (it.non_alcoholic) btn.appendChild(el('span', 'zero', '0% ALC'));
         var info = el('span', 'info');
         info.appendChild(el('span', 'nm', it.name));
-        info.appendChild(el('span', 'nm-th', it.name_th || ''));
         info.appendChild(el('span', 'pr', price));
         btn.appendChild(info);
         btn.addEventListener('click', function(){ openCard(it, full, price); });
@@ -106,7 +103,6 @@
     img.alt = it.name;
     img.classList.remove('full');
     $('cardName').textContent = it.name;
-    $('cardTh').textContent = it.name_th || '';
     $('cardNew').style.display = it.new ? 'inline-block' : 'none';
     $('cardDetail').textContent = it.description || it.tagline || '';
     $('cardDetail').style.display = (it.description || it.tagline) ? '' : 'none';
@@ -115,12 +111,11 @@
     r.innerHTML = '';
     r.className = 'recipe';
     if (it.ingredients && it.ingredients.length){
-      r.appendChild(el('h3', '', 'Ingredients · ส่วนผสม'));
+      r.appendChild(el('h3', '', 'Ingredients'));
       var ul = el('ul');
       it.ingredients.forEach(function(g){
         var li = el('li');
         var a = el('span', '', g.en);
-        if (g.th) a.appendChild(el('small', '', g.th));
         li.appendChild(a);
         li.appendChild(el('span', '', g.ml ? g.ml + ' ml' : ''));
         ul.appendChild(li);
@@ -128,12 +123,11 @@
       r.appendChild(ul);
     }
     if (it.options && it.options.length){
-      r.appendChild(el('h3', '', 'Choose your spirit · เลือกได้'));
+      r.appendChild(el('h3', '', 'Choose your spirit'));
       var ul2 = el('ul');
       it.options.forEach(function(o){
         var li = el('li');
         var a = el('span', '', o.en);
-        if (o.th) a.appendChild(el('small', '', o.th));
         li.appendChild(a);
         li.appendChild(el('span', '', o.abv ? o.abv + ' ABV' : ''));
         ul2.appendChild(li);
@@ -141,11 +135,10 @@
       r.appendChild(ul2);
     }
     if (it.taste){
-      r.appendChild(el('h3', '', 'Taste · รสชาติ'));
+      r.appendChild(el('h3', '', 'Taste'));
       var chips = el('div', 'chips');
       it.taste.split('•').forEach(function(t){ t = t.trim(); if (t) chips.appendChild(el('span', '', t)); });
       r.appendChild(chips);
-      if (it.taste_th) r.appendChild(el('span', 'tag-th', it.taste_th));
     }
     if (it.glass || it.garnish){
       var two = el('div', 'row2');
