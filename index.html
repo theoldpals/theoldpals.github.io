@@ -66,6 +66,7 @@
     display:block;
     width:100%;
     height:auto;
+    aspect-ratio:auto 1748 / 2481;   /* A5 placeholder so lazy pages wait their turn */
     cursor:zoom-in;
   }
   .state{
@@ -156,11 +157,17 @@
   // Menu images are auto-detected. To update the menu, just upload
   // files named menu-1.jpg, menu-2.jpg, menu-3.jpg ... into /images/
   // Supported: .jpg .jpeg .png .webp  (no code changes needed)
+  // If two files share a page number, the first type in EXTS wins.
+  //
+  // Speed: pages are found with tiny HEAD requests (no image download),
+  // each page is shown as soon as it is found, and only page 1 loads
+  // straight away; the rest load as you scroll. Each image URL carries
+  // the file's ETag, so phones keep it cached until the file changes.
   // ---------------------------------------------------------------
   var EXTS = ['jpg','jpeg','png','webp','JPG','PNG'];
   var MAX_PAGES = 30;
   var STOP_AFTER_MISSES = 2;
-  var bust = '?v=' + Math.floor(Date.now() / 60000); // refresh at most once a minute
+  var minuteBust = 'm' + Math.floor(Date.now() / 60000); // fallback only
 
   var menu = document.getElementById('menu');
   var state = document.getElementById('state');
@@ -168,29 +175,66 @@
   var viewer = document.getElementById('viewer');
   var viewerImg = document.getElementById('viewerImg');
   var closeBtn = document.getElementById('closeBtn');
+  var useHead = /^https?:$/.test(location.protocol) && 'fetch' in window;
 
-  function tryLoad(src){
+  function tag(s){ return String(s || '').replace(/[^A-Za-z0-9]/g, '').slice(-16); }
+
+  // Returns a version string if the file exists, null if not.
+  function headProbe(path){
+    return fetch(path, {method:'HEAD', cache:'no-cache'}).then(function(r){
+      if (!r.ok) return null;
+      var t = (r.headers.get('content-type') || '').toLowerCase();
+      if (t && t.indexOf('image/') !== 0) return null;    // a 200 HTML error page is not an image
+      return tag(r.headers.get('etag')) || tag(r.headers.get('last-modified')) || minuteBust;
+    });
+  }
+  // Old way (downloads the image) - used only where HEAD is not possible.
+  function imgProbe(path){
     return new Promise(function(resolve){
       var img = new Image();
-      img.onload = function(){ resolve(src); };
+      img.onload = function(){ resolve(minuteBust); };
       img.onerror = function(){ resolve(null); };
-      img.src = src;
+      img.src = path + '?v=' + minuteBust;
+    });
+  }
+  function probe(path){
+    if (!useHead) return imgProbe(path);
+    return headProbe(path).catch(function(){ useHead = false; return imgProbe(path); });
+  }
+
+  // Check every file type for page n at once; keep the first in EXTS order.
+  function findPage(n){
+    return Promise.all(EXTS.map(function(ext){
+      var path = 'images/menu-' + n + '.' + ext;
+      return probe(path).then(function(v){ return v ? path + '?v=' + v : null; });
+    })).then(function(list){
+      for (var i = 0; i < list.length; i++) if (list[i]) return list[i];
+      return null;
     });
   }
 
-  function findPage(n){
-    var i = 0;
-    function next(){
-      if (i >= EXTS.length) return Promise.resolve(null);
-      var src = 'images/menu-' + n + '.' + EXTS[i++] + bust;
-      return tryLoad(src).then(function(found){ return found || next(); });
+  function addPage(src, idx){
+    if (state.parentNode) state.remove();
+    var fig = document.createElement('div');
+    fig.className = 'page';
+    var img = document.createElement('img');
+    img.alt = 'Menu page ' + (idx + 1);
+    img.decoding = 'async';
+    if (idx === 0){
+      img.loading = 'eager';
+      img.setAttribute('fetchpriority', 'high');
+    } else {
+      img.loading = 'lazy';
     }
-    return next();
+    img.src = src;
+    img.addEventListener('click', function(){ openViewer(src); });
+    fig.appendChild(img);
+    menu.appendChild(fig);
   }
 
-  function render(sources){
-    state.remove();
-    if (!sources.length){
+  function finish(count){
+    if (!count){
+      state.remove();
       var empty = document.createElement('div');
       empty.className = 'state';
       empty.innerHTML = 'No menu images yet.<br><br>' +
@@ -198,18 +242,6 @@
       menu.appendChild(empty);
       return;
     }
-    sources.forEach(function(src, idx){
-      var fig = document.createElement('div');
-      fig.className = 'page';
-      var img = document.createElement('img');
-      img.src = src;
-      img.alt = 'Menu page ' + (idx + 1);
-      img.loading = idx < 2 ? 'eager' : 'lazy';
-      img.decoding = 'async';
-      img.addEventListener('click', function(){ openViewer(src); });
-      fig.appendChild(img);
-      menu.appendChild(fig);
-    });
     foot.textContent = 'The Old Pals';
   }
 
@@ -231,13 +263,11 @@
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeViewer(); });
 
   (function scan(){
-    var found = [];
-    var misses = 0;
-    var n = 1;
+    var count = 0, misses = 0, n = 1;
     function step(){
-      if (n > MAX_PAGES || misses >= STOP_AFTER_MISSES) return render(found);
+      if (n > MAX_PAGES || misses >= STOP_AFTER_MISSES) return finish(count);
       findPage(n).then(function(src){
-        if (src){ found.push(src); misses = 0; }
+        if (src){ addPage(src, count++); misses = 0; }
         else { misses++; }
         n++;
         step();
