@@ -1,0 +1,79 @@
+{
+  "title": "Promotions",
+  "currency": "฿",
+  "imageFolder": "promotion_images/",
+  "thumbFolder": "promotion_images/thumb/",
+  "posterFolder": "promotion_images/poster/",
+  "sections": [
+    {
+      "id": "promo150",
+      "name": "Any drink ฿150"
+    }
+  ],
+  "items": [
+    {
+      "name": "Mojito",
+      "section": "promo150",
+      "order": 1,
+      "price": 150,
+      "unit": "Glass",
+      "new": false,
+      "image": "mojito-rum.jpg",
+      "poster": "mojito-rum.jpg",
+      "description": "A classic Cuban cocktail with white rum, fresh lime, mint, and a touch of sweetness, topped with soda. Light, crisp, and refreshing.",
+      "ingredients": [
+        {
+          "en": "White Rum",
+          "ml": null
+        },
+        {
+          "en": "Fresh Lime",
+          "ml": null
+        },
+        {
+          "en": "Mint",
+          "ml": null
+        },
+        {
+          "en": "Sugar",
+          "ml": null
+        },
+        {
+          "en": "Soda Water",
+          "ml": null
+        }
+      ],
+      "taste": "Refreshing • Citrusy • Herbal • Well-Balanced • Sparkling",
+      "glass": "Highball Glass",
+      "garnish": "Lime Wheel & Mint"
+    },
+    {
+      "name": "Gin Tonic",
+      "section": "promo150",
+      "order": 2,
+      "price": 150,
+      "unit": "Glass",
+      "new": false,
+      "image": "gin-tonic.jpg"
+    },
+    {
+      "name": "Screwdriver",
+      "section": "promo150",
+      "order": 3,
+      "price": 150,
+      "unit": "Glass",
+      "new": false,
+      "image": "screwdriver.jpg",
+      "poster": "screwdriver.jpg"
+    },
+    {
+      "name": "Highball",
+      "section": "promo150",
+      "order": 4,
+      "price": 150,
+      "unit": "Glass",
+      "new": false,
+      "image": "highball.jpg"
+    }
+  ]
+}
