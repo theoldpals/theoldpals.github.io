@@ -16,6 +16,7 @@
   //                inside posterFolder (optional; falls back to image)
   //   new          true puts a gold star on the card
   //   hidden       true hides the drink without deleting it
+  //   was          old price, shown crossed out before the price (promotions)
   //   description  paragraph on the tap card (optional)
   //   ingredients  [{"en": "Gin", "ml": 45}, ...] (optional;
   //                ml can be null when there is no measure)
@@ -92,7 +93,9 @@
         if (it.non_alcoholic) btn.appendChild(el('span', 'zero', '0% ALC'));
         var info = el('span', 'info');
         info.appendChild(el('span', 'nm', it.name));
-        info.appendChild(el('span', 'pr', price));
+        var pr = el('span', 'pr', price);
+        if (it.was){ var w = el('s', 'was', priceText(it.was, currency)); pr.insertBefore(w, pr.firstChild); pr.insertBefore(document.createTextNode(' '), w.nextSibling); }
+        info.appendChild(pr);
         btn.appendChild(info);
         btn.addEventListener('click', function(){ openCard(it, full, price); });
         grid.appendChild(btn);
@@ -152,6 +155,7 @@
       r.appendChild(two);
     }
     $('cardPrice').textContent = price + (price && it.unit ? ' / ' + String(it.unit).toLowerCase() : '');
+    if (it.was){ var ws = el('s', 'was', priceText(it.was, (document.body.getAttribute('data-currency') || '฿'))); $('cardPrice').insertBefore(document.createTextNode(' '), $('cardPrice').firstChild); $('cardPrice').insertBefore(ws, $('cardPrice').firstChild); }
     card.classList.add('open');
     card.querySelector('.sheet').scrollTop = 0;
     document.body.style.overflow = 'hidden';

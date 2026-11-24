@@ -8,6 +8,10 @@
     {
       "id": "promo150",
       "name": "Any drink ฿150"
+    },
+    {
+      "id": "beer100",
+      "name": "Promotion Beer ฿100"
     }
   ],
   "items": [
@@ -74,6 +78,57 @@
       "unit": "Glass",
       "new": false,
       "image": "highball.jpg"
+    },
+    {
+      "name": "Singha Large 620 ml",
+      "section": "beer100",
+      "order": 1,
+      "price": 100,
+      "unit": "Bottle",
+      "new": false,
+      "image": "singha-large.jpg",
+      "description": "Thailand's classic pale lager, 5% ABV. Golden, full-bodied and rich, brewed with 100% barley malt. By Boon Rawd Brewery.",
+      "was": 140
+    },
+    {
+      "name": "Singha Small 320 ml",
+      "section": "beer100",
+      "order": 2,
+      "price": 100,
+      "unit": "Bottle",
+      "new": false,
+      "image": "singha-small.jpg",
+      "description": "Thailand's classic pale lager, 5% ABV. Golden, full-bodied and rich, brewed with 100% barley malt. By Boon Rawd Brewery."
+    },
+    {
+      "name": "Phuket Island Beer 320 ml",
+      "section": "beer100",
+      "order": 3,
+      "price": 100,
+      "unit": "Bottle",
+      "new": false,
+      "image": "phuket-island-beer.jpg",
+      "description": "Thai wheat beer, 4.2% ABV. Light, fruity and refreshing. Gold medal, World Beer Awards 2026. Brewed by Tawandang Brewery 1999."
+    },
+    {
+      "name": "Pattaya Beach Beer 320 ml",
+      "section": "beer100",
+      "order": 4,
+      "price": 100,
+      "unit": "Bottle",
+      "new": false,
+      "image": "pattaya-beach-beer.jpg",
+      "description": "Thai light lager, 3.9% ABV, with a fresh lime and lemon scent. Crisp, light and easy-drinking. Brewed by Tawandang Brewery 1999."
+    },
+    {
+      "name": "Tawandang IPA 320 ml",
+      "section": "beer100",
+      "order": 5,
+      "price": 100,
+      "unit": "Bottle",
+      "new": false,
+      "image": "tawandang-ipa-bottle-320ml.jpg",
+      "description": "Thai IPA, 5.5% ABV, with a hop-forward taste. Brewed by Tawandang Brewery 1999."
     }
   ]
 }
