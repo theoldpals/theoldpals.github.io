@@ -7,13 +7,13 @@
   "sections": [
     {
       "id": "promo150",
-      "name": "Any drink ฿150",
+      "name": "Songkran · Any drink ฿150",
       "season": "Songkran",
       "hidden": true
     },
     {
       "id": "beer100",
-      "name": "Promotion Beer ฿100",
+      "name": "Songkran · Promotion Beer ฿100",
       "season": "Songkran",
       "hidden": true
     }
