@@ -207,9 +207,10 @@
       var v = Math.max(0, Math.min(100, num(taste[t[0]], 0)));
       var rowEl = document.createElement('div');
       rowEl.className = 'meter';
-      rowEl.innerHTML = '<span class="label"></span><span class="bar"><i></i></span>';
+      rowEl.innerHTML = '<span class="label"></span><span class="bar"><i></i></span><span class="num"></span>';
       rowEl.querySelector('.label').textContent = t[1] + ' ' + t[2];
       rowEl.querySelector('i').style.width = v + '%';
+      rowEl.querySelector('.num').textContent = Math.round(v);
       cardTaste.appendChild(rowEl);
     });
     cardPrice.textContent = price + (price && it.unit ? ' / ' + String(it.unit).toLowerCase() : '');

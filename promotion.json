@@ -1,0 +1,139 @@
+{
+  "title": "Promotions",
+  "currency": "฿",
+  "imageFolder": "promotion_images/",
+  "thumbFolder": "promotion_images/thumb/",
+  "posterFolder": "promotion_images/poster/",
+  "sections": [
+    {
+      "id": "promo150",
+      "name": "Songkran · Any drink ฿150",
+      "season": "Songkran",
+      "hidden": true
+    },
+    {
+      "id": "beer100",
+      "name": "Songkran · Promotion Beer ฿100",
+      "season": "Songkran",
+      "hidden": true
+    }
+  ],
+  "items": [
+    {
+      "name": "Mojito",
+      "section": "promo150",
+      "order": 1,
+      "price": 150,
+      "unit": "Glass",
+      "new": false,
+      "image": "mojito-rum.jpg",
+      "poster": "mojito-rum.jpg",
+      "description": "A classic Cuban cocktail with white rum, fresh lime, mint, and a touch of sweetness, topped with soda. Light, crisp, and refreshing.",
+      "ingredients": [
+        {
+          "en": "White Rum",
+          "ml": null
+        },
+        {
+          "en": "Fresh Lime",
+          "ml": null
+        },
+        {
+          "en": "Mint",
+          "ml": null
+        },
+        {
+          "en": "Sugar",
+          "ml": null
+        },
+        {
+          "en": "Soda Water",
+          "ml": null
+        }
+      ],
+      "taste": "Refreshing • Citrusy • Herbal • Well-Balanced • Sparkling",
+      "glass": "Highball Glass",
+      "garnish": "Lime Wheel & Mint"
+    },
+    {
+      "name": "Gin Tonic",
+      "section": "promo150",
+      "order": 2,
+      "price": 150,
+      "unit": "Glass",
+      "new": false,
+      "image": "gin-tonic.jpg"
+    },
+    {
+      "name": "Screwdriver",
+      "section": "promo150",
+      "order": 3,
+      "price": 150,
+      "unit": "Glass",
+      "new": false,
+      "image": "screwdriver.jpg",
+      "poster": "screwdriver.jpg"
+    },
+    {
+      "name": "Highball",
+      "section": "promo150",
+      "order": 4,
+      "price": 150,
+      "unit": "Glass",
+      "new": false,
+      "image": "highball.jpg"
+    },
+    {
+      "name": "Singha Large 620 ml",
+      "section": "beer100",
+      "order": 1,
+      "price": 100,
+      "unit": "Bottle",
+      "new": false,
+      "image": "singha-large.jpg",
+      "description": "Thailand's classic pale lager, 5% ABV. Golden, full-bodied and rich, brewed with 100% barley malt. By Boon Rawd Brewery.",
+      "was": 140
+    },
+    {
+      "name": "Singha Small 320 ml",
+      "section": "beer100",
+      "order": 2,
+      "price": 100,
+      "unit": "Bottle",
+      "new": false,
+      "image": "singha-small.jpg",
+      "description": "Thailand's classic pale lager, 5% ABV. Golden, full-bodied and rich, brewed with 100% barley malt. By Boon Rawd Brewery."
+    },
+    {
+      "name": "Phuket Island Beer 320 ml",
+      "section": "beer100",
+      "order": 3,
+      "price": 100,
+      "unit": "Bottle",
+      "new": false,
+      "image": "phuket-island-beer.jpg",
+      "description": "Thai wheat beer, 4.2% ABV. Light, fruity and refreshing. Gold medal, World Beer Awards 2026. Brewed by Tawandang Brewery 1999."
+    },
+    {
+      "name": "Pattaya Beach Beer 320 ml",
+      "section": "beer100",
+      "order": 4,
+      "price": 100,
+      "unit": "Bottle",
+      "new": false,
+      "image": "pattaya-beach-beer.jpg",
+      "description": "Thai light lager, 3.9% ABV, with a fresh lime and lemon scent. Crisp, light and easy-drinking. Brewed by Tawandang Brewery 1999."
+    },
+    {
+      "name": "Tawandang IPA 320 ml",
+      "section": "beer100",
+      "order": 5,
+      "price": 100,
+      "unit": "Bottle",
+      "new": false,
+      "image": "tawandang-ipa-bottle-320ml.jpg",
+      "description": "Thai IPA, 5.5% ABV, with a hop-forward taste. Brewed by Tawandang Brewery 1999."
+    }
+  ],
+  "emptyText": "No promotions right now. Please check back soon."
+}

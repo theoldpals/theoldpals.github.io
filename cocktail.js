@@ -16,6 +16,10 @@
   //                inside posterFolder (optional; falls back to image)
   //   new          true puts a gold star on the card
   //   hidden       true hides the drink without deleting it
+  //   sections[].hidden  true hides a whole section (e.g. a past seasonal
+  //                promotion) without deleting it; "emptyText" is shown
+  //                when nothing is left
+  //   was          old price, shown crossed out before the price (promotions)
   //   description  paragraph on the tap card (optional)
   //   ingredients  [{"en": "Gin", "ml": 45}, ...] (optional;
   //                ml can be null when there is no measure)
@@ -49,10 +53,12 @@
     var posters = data.posterFolder || folder;
     var currency = data.currency === undefined ? '฿' : data.currency;
     if (data.title) document.title = 'The Old Pals — ' + data.title;
-    var items = (data.items || []).filter(function(it){ return it && !it.hidden; });
-    if (!items.length){ bar.innerHTML = '<div class="state">No cocktails yet.</div>'; return; }
+    var hiddenSec = {};
+    (data.sections || []).forEach(function(s){ if (s && s.hidden) hiddenSec[s.id] = true; });
+    var items = (data.items || []).filter(function(it){ return it && !it.hidden && !hiddenSec[it.section]; });
+    if (!items.length){ bar.innerHTML = '<div class="state"></div>'; bar.firstChild.textContent = data.emptyText || 'No cocktails yet.'; return; }
 
-    var sections = (data.sections || []).slice();
+    var sections = (data.sections || []).filter(function(s){ return s && !s.hidden; });
     var known = {};
     sections.forEach(function(s){ known[s.id] = true; });
     items.forEach(function(it){
@@ -92,7 +98,9 @@
         if (it.non_alcoholic) btn.appendChild(el('span', 'zero', '0% ALC'));
         var info = el('span', 'info');
         info.appendChild(el('span', 'nm', it.name));
-        info.appendChild(el('span', 'pr', price));
+        var pr = el('span', 'pr', price);
+        if (it.was){ var w = el('s', 'was', priceText(it.was, currency)); pr.insertBefore(w, pr.firstChild); pr.insertBefore(document.createTextNode(' '), w.nextSibling); }
+        info.appendChild(pr);
         btn.appendChild(info);
         btn.addEventListener('click', function(){ openCard(it, full, price); });
         grid.appendChild(btn);
@@ -152,6 +160,7 @@
       r.appendChild(two);
     }
     $('cardPrice').textContent = price + (price && it.unit ? ' / ' + String(it.unit).toLowerCase() : '');
+    if (it.was){ var ws = el('s', 'was', priceText(it.was, (document.body.getAttribute('data-currency') || '฿'))); $('cardPrice').insertBefore(document.createTextNode(' '), $('cardPrice').firstChild); $('cardPrice').insertBefore(ws, $('cardPrice').firstChild); }
     card.classList.add('open');
     card.querySelector('.sheet').scrollTop = 0;
     document.body.style.overflow = 'hidden';
