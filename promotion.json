@@ -7,11 +7,15 @@
   "sections": [
     {
       "id": "promo150",
-      "name": "Any drink ฿150"
+      "name": "Any drink ฿150",
+      "season": "Songkran",
+      "hidden": true
     },
     {
       "id": "beer100",
-      "name": "Promotion Beer ฿100"
+      "name": "Promotion Beer ฿100",
+      "season": "Songkran",
+      "hidden": true
     }
   ],
   "items": [
@@ -130,5 +134,6 @@
       "image": "tawandang-ipa-bottle-320ml.jpg",
       "description": "Thai IPA, 5.5% ABV, with a hop-forward taste. Brewed by Tawandang Brewery 1999."
     }
-  ]
+  ],
+  "emptyText": "No promotions right now. Please check back soon."
 }

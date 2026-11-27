@@ -16,6 +16,9 @@
   //                inside posterFolder (optional; falls back to image)
   //   new          true puts a gold star on the card
   //   hidden       true hides the drink without deleting it
+  //   sections[].hidden  true hides a whole section (e.g. a past seasonal
+  //                promotion) without deleting it; "emptyText" is shown
+  //                when nothing is left
   //   was          old price, shown crossed out before the price (promotions)
   //   description  paragraph on the tap card (optional)
   //   ingredients  [{"en": "Gin", "ml": 45}, ...] (optional;
@@ -50,10 +53,12 @@
     var posters = data.posterFolder || folder;
     var currency = data.currency === undefined ? '฿' : data.currency;
     if (data.title) document.title = 'The Old Pals — ' + data.title;
-    var items = (data.items || []).filter(function(it){ return it && !it.hidden; });
-    if (!items.length){ bar.innerHTML = '<div class="state">No cocktails yet.</div>'; return; }
+    var hiddenSec = {};
+    (data.sections || []).forEach(function(s){ if (s && s.hidden) hiddenSec[s.id] = true; });
+    var items = (data.items || []).filter(function(it){ return it && !it.hidden && !hiddenSec[it.section]; });
+    if (!items.length){ bar.innerHTML = '<div class="state"></div>'; bar.firstChild.textContent = data.emptyText || 'No cocktails yet.'; return; }
 
-    var sections = (data.sections || []).slice();
+    var sections = (data.sections || []).filter(function(s){ return s && !s.hidden; });
     var known = {};
     sections.forEach(function(s){ known[s.id] = true; });
     items.forEach(function(it){
